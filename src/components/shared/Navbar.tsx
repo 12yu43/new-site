@@ -55,11 +55,11 @@ export const Navbar = ({
           duration: 0.2,
         }}
         className={cn(
-          "flex max-w-fit fixed top-8 inset-x-0 mx-auto border rounded-full bg-gray-50 z-[5000] px-4 py-2  items-center justify-center space-x-4",
+          "flex max-w-fit fixed top-8 inset-x-0 mx-auto border rounded-full bg-gray-50 z-[5000] px-4  items-center justify-center ",
           className
         )}
       >
-        <div className="relative w-full flex items-center justify-center">
+        <div className="relative w-full  flex items-center justify-center">
           <div
             className={cn(" inset-x-0 max-w-2xl mx-auto z-50", className)}
           >
