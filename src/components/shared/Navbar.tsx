@@ -6,12 +6,10 @@ import {
   useScroll,
   useMotionValueEvent,
 } from "framer-motion";
-import Link from "next/link";
 import { cn } from "@/lib/cn";
 import { HoveredLink, Menu, MenuItem, ProductItem } from "../ui/navbar-menu";
 
 export const Navbar = ({
-  navItems,
   className,
 }: {
   navItems: {
@@ -29,7 +27,7 @@ export const Navbar = ({
   useMotionValueEvent(scrollYProgress, "change", (current) => {
     // Check if current is not undefined and is a number
     if (typeof current === "number") {
-      let direction = current! - scrollYProgress.getPrevious()!;
+      const direction = current! - scrollYProgress.getPrevious()!;
 
       if (scrollYProgress.get() < 0.05) {
         setVisible(true);
