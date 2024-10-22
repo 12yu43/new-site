@@ -117,9 +117,10 @@ export const ProductItem = ({
     );
 };
 
-export const HoveredLink = ({ children, ...rest }: any) => {
+export const HoveredLink = ({ children, className, ...rest }: any) => {
     return (
         <Link
+            className={cn("hover:opacity-[0.9] ", className)}
             {...rest}
         >
             {children}
