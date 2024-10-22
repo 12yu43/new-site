@@ -4,7 +4,7 @@ import React from "react";
 
 export function NewsSection() {
     return (
-        <BentoGrid className="max-w-4xl mx-auto">
+        <BentoGrid className="max-w-4xl mx-auto container">
             {items.map((item, i) => (
                 <BentoGridItem
                     key={i}

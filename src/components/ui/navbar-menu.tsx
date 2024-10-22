@@ -3,6 +3,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { cn } from "@/lib/cn";
 
 const transition = {
     type: "spring",
@@ -17,37 +19,43 @@ export const MenuItem = ({
     setActive,
     active,
     item,
+    path,
     children,
 }: {
     setActive: (item: string) => void;
     active: string | null;
     item: string;
+    path?: string
     children?: React.ReactNode;
 }) => {
+    const pathName = usePathname()
     return (
         <div onMouseEnter={() => setActive(item)} className="relative ">
-            <motion.p
-                transition={{ duration: 0.3 }}
-                className="cursor-pointer text-black hover:opacity-[0.9] "
-            >
-                {item}
-            </motion.p>
-            {active !== null && (
+            {
+                !path ? <motion.p
+                    transition={{ duration: 0.3 }}
+                    className="cursor-pointer  hover:opacity-[0.9] "
+                >
+                    {item}
+                </motion.p> : <HoveredLink href={path} className={cn("cursor-pointer ", (pathName === path || pathName.includes(path)) && "text-black")}>{item} </HoveredLink>
+            }
+
+            {active !== null && !!children && (
                 <motion.div
                     initial={{ opacity: 0, scale: 0.85, y: 10 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     transition={transition}
                 >
                     {active === item && (
-                        <div className="absolute top-[calc(100%_+_1.2rem)] left-1/2 transform -translate-x-1/2 pt-4">
+                        <div className="absolute top-[calc(100%_+_0.1rem)] left-1/2 transform -translate-x-1/2 pt-4">
                             <motion.div
                                 transition={transition}
-                                layoutId="active" // layoutId ensures smooth animation
+                                layoutId="active"
                                 className="bg-white  backdrop-blur-sm rounded-2xl overflow-hidden border border-black/[0.2] dark:border-white/[0.2] shadow-xl"
                             >
                                 <motion.div
-                                    layout // layout ensures smooth animation
-                                    className="w-max h-full p-4"
+                                    layout
+                                    className="w-max h-full p-4 "
                                 >
                                     {children}
                                 </motion.div>
@@ -70,7 +78,7 @@ export const Menu = ({
     return (
         <nav
             onMouseLeave={() => setActive(null)} // resets the state
-            className="relative rounded-full border border-white/[0.2]  shadow-input flex justify-center space-x-4 px-6 py-4"
+            className="relative rounded-full border border-white/[0.2] text-sm text-nowrap shadow-input flex justify-center space-x-4 px-6 py-4 text-neutral-700 "
         >
             {children}
         </nav>
@@ -113,7 +121,6 @@ export const HoveredLink = ({ children, ...rest }: any) => {
     return (
         <Link
             {...rest}
-            className="text-neutral-700  hover:text-black "
         >
             {children}
         </Link>
