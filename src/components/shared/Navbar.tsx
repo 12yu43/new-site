@@ -7,7 +7,7 @@ import {
   useMotionValueEvent,
 } from "framer-motion";
 import { cn } from "@/lib/cn";
-import { HoveredLink, Menu, MenuItem, ProductItem } from "../ui/navbar-menu";
+import { HoveredLink, Menu, MenuItem } from "../ui/navbar-menu";
 import CustomSearchBar from "./CustomSearchBar";
 import { MenuItem as MenuItemType, navItems } from "@/constants/navItems";
 
