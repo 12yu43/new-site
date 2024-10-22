@@ -1,5 +1,5 @@
 import RightSideBar from '@/components/shared/RightSideBar'
-import { Endpoints } from '@/constants/endpoints'
+// import { Endpoints } from '@/constants/endpoints'
 import React from 'react'
 
 const HeroSection = () => {
