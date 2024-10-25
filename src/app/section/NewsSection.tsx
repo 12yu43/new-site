@@ -4,17 +4,22 @@ import React from "react";
 
 export function NewsSection() {
     return (
-        <BentoGrid className="max-w-4xl mx-auto container">
-            {items.map((item, i) => (
-                <BentoGridItem
-                    key={i}
-                    title={item.title}
-                    description={item.description}
-                    header={item.header}
-                    className={i === 3 || i === 6 ? "md:col-span-2" : ""}
-                />
-            ))}
-        </BentoGrid>
+        <section className='bg-white py-10'>
+            <div className='container '>
+                <h2 className='section-title mt-5'>Cover Features</h2>
+                <BentoGrid className="pt-8">
+                    {items.map((item, i) => (
+                        <BentoGridItem
+                            key={i}
+                            title={item.title}
+                            description={item.description}
+                            header={item.header}
+                            // className={i === 3 || i === 6 ? "md:col-span-2" : ""}
+                        />
+                    ))}
+                </BentoGrid>
+            </div>
+        </section>
     );
 }
 const Skeleton = () => (

@@ -25,7 +25,7 @@ export const Navbar = ({
   useMotionValueEvent(scrollYProgress, "change", (current) => {
     // Check if current is not undefined and is a number
     if (typeof current === "number") {
-      if (scrollYProgress.get() > 0.05) {
+      if (scrollYProgress.get() > 0.04) {
         setVisible(true);
       }
       else {
@@ -45,7 +45,8 @@ export const Navbar = ({
           opacity: visible ? 1 : 0,
         }}
         transition={{
-          duration: 0.2,
+          duration: 0.5,
+          ease: 'easeIn',
         }}
         className={cn(
           "flex max-md:hidden fixed top-0 inset-x-0 mx-auto border  shadow-lg  w-full bg-white z-[5000] px-4 py-2   items-center justify-center ",

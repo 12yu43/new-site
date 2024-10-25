@@ -8,7 +8,7 @@ export default function Layout({
     return (
         <>
             <Header />
-            <main className="mt-28">
+            <main className="mt-10">
                 {children}
             </main>
         </>
