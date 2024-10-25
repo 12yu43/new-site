@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import React from 'react'
 import { Testimonials } from '../section/Testimonials'
 import { NewsSection } from '../section/NewsSection'
 import HeroSection from '../section/HeroSection'
