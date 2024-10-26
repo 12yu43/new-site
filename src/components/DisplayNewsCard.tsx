@@ -7,7 +7,7 @@ const DisplayNewsCard = ({ href, image_url, title, image_alt }: { href: string, 
     return (
         <article>
             <Link href={href}>
-                <div className='w-[210px] h-[140px] overflow-hidden rounded-lg relative mx-auto mb-2'>
+                <div className='w-[210px] h-[120px] overflow-hidden rounded-lg relative mx-auto mb-2'>
                     {!!image_url && <Image src={Endpoints.ImageUrl + image_url} alt={image_alt || title} fill className='image-effect' />}
                 </div>
                 <p className='mx-auto w-[200px] line-clamp-3 font-semibold text-xs text-slate-800'>{title}</p>

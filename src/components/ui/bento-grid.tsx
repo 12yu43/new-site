@@ -1,4 +1,6 @@
+import { Endpoints } from "@/constants/endpoints";
 import { cn } from "@/lib/cn";
+import Image from "next/image";
 
 export const BentoGrid = ({
     className,
@@ -22,29 +24,29 @@ export const BentoGrid = ({
 export const BentoGridItem = ({
     className,
     title,
-    description,
-    header,
+    images,
+    image_alt,
+    url
 }: {
     className?: string;
     title?: string | React.ReactNode;
-    description?: string | React.ReactNode;
-    header?: React.ReactNode;
     icon?: React.ReactNode;
+    images: string,
+    image_alt: string,
+    url: string
+
 }) => {
     return (
         <div
             className={cn(
-                "row-span-1 rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-input p-4  bg-white border justify-between flex flex-col space-y-4",
+                "row-span-1 relative rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-input p-4  bg-white border justify-between flex flex-col space-y-4 overflow-hidden",
                 className
             )}
         >
-            {header}
+            <Image src={Endpoints.ImageUrl + images} alt={image_alt} width={500} height={200} />
             <div className="group-hover/bento:translate-x-2 transition duration-200">
-                <div className=" font-bold text-neutral-600  mb-2 mt-2">
+                <div className=" font-bold text-neutral-600  mb-2 mt-2 line-clamp-2">
                     {title}
-                </div>
-                <div className="font-normal text-neutral-600 text-xs ">
-                    {description}
                 </div>
             </div>
         </div>

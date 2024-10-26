@@ -16,7 +16,7 @@
     @apply h-8 w-auto;
   }
   .tag {
-    @apply text-sm inline-flex border border-[#222]/10 px-3 py-1 rounded-lg tracking-tight;
+    @apply text-sm inline-flex border border-[#222]/10 px-3 py-1 rounded-lg tracking-tight hover:bg-[#010D3E] hover:text-white ease-in-out duration-300;
   }
   .section-title {
     @apply  text-3xl md:text-[48px] md:leading-[60px] font-bold tracking-tighter bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text;
