@@ -21,7 +21,7 @@ type NewsSubcategories = {
   entrepreneurs?: { data: News[] };
   entertainment_media?: { data: News[] };
   awards_events?: { data: News[] };
-  [key: string]: { data: News[] } | undefined; 
+  [key: string]: { data: News[] } | undefined;
 };
 
 type HomeNewsCategories =
@@ -42,6 +42,6 @@ type HomeNewsCategories =
   | "awards_events";
 
 export type HomeNewsResponse = {
-  data: Record<HomeNewsCategories, News[]>;
+  data: Record<HomeNewsCategories, News[] & { data?: News[] }>;
   [key: string]: any;
 };

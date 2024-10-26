@@ -13,14 +13,15 @@ const HeroSection = async ({ data }: { data: HomeNewsResponse }) => {
         <section className=' bg-white'>
             <div className='container'>
                 <div className='grid grid-cols-12 gap-6 py-6 border-y-2'>
-                    <div className='col-span-6 bg-gray-50  '>
+                    <div className='col-span-6  bg-gray-50  '>
                         {
                             data.data.technology.slice(0, 1).map((item) => (
-                                <div key={item.id} className='relative overflow-hidden rounded-lg cursor-pointer'>
+                                <div key={item.id} className=' overflow-hidden relative rounded-lg cursor-pointer z-10 '>
                                     <Image src={Endpoints.ImageUrl + item.images} alt={item.image_alt} width={600} height={600} className=' z-10 hover:scale-105 duration-300 ease-in-out' />
-                                    <p className='text-2xl text-white font-bold absolute z-20 bottom-6 left-4 '>
+                                    <p className='text-2xl text-white font-bold absolute z-30 bottom-6 left-4 '>
                                         {item.title}
                                     </p>
+                                    <div className='absolute bg-black/20 w-full h-full z-20 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'></div>
                                 </div>
                             ))
                         }
