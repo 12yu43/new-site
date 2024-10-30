@@ -1,15 +1,16 @@
+import HeadingTitle from '@/components/shared/HeadingTitle'
 import { BentoGrid, BentoGridItem } from '@/components/ui/bento-grid'
-import { HomeNewsResponse } from '@/types'
+import { ApiResponse } from '@/types'
 import Link from 'next/link'
 import React from 'react'
 
-const StartupInsightsSections = ({ data }: { data: HomeNewsResponse }) => {
+const StartupInsightsSections = ({ data }: { data: ApiResponse }) => {
     return (
-        <section className='bg-white py-10'>
+        <section className='bg-white py-6'>
             <div className='container '>
-                <h2 className='section-title mt-5'>Startup Insights</h2>
+                <HeadingTitle>Startup Insights</HeadingTitle>
                 <BentoGrid className="pt-8">
-                    {data.data.startup_insight.slice(0, 6).map((item, i) => (
+                    {data.data.startup_insight?.slice(0, 6).map((item, i) => (
                         <BentoGridItem
                             key={i}
                             title={item.title}

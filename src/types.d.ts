@@ -15,6 +15,7 @@ export type News = {
   updated_at: string;
   news?: NewsSubcategories;
 };
+
 type NewsSubcategories = {
   sports?: { data: News[] };
   life_style?: { data: News[] };
@@ -24,24 +25,40 @@ type NewsSubcategories = {
   [key: string]: { data: News[] } | undefined;
 };
 
-type HomeNewsCategories =
-  | "technology"
-  | "industry"
-  | "business"
-  | "magazine"
-  | "cover_story"
-  | "featured_people"
-  | "startup_insight"
-  | "banner"
-  | "video"
-  | "client_speak"
-  | "sports"
-  | "life_style"
-  | "entrepreneurs"
-  | "entertainment_media"
-  | "awards_events";
-
-export type HomeNewsResponse = {
-  data: Record<HomeNewsCategories, News[] & { data?: News[] }>;
-  [key: string]: any;
-};
+interface ApiResponse {
+  data: {
+    technology?: News[];
+    industry?: News[];
+    business?: News[];
+    magazine?: {
+      data: News[];
+    };
+    cover_story?: News[];
+    featured_people?: {
+      data: News[];
+    };
+    startup_insight?: News[];
+    banner?: News[];
+    video?: News[];
+    client_speak?: {
+      data: News[];
+    };
+    news?: {
+      sports?: {
+      data: News[];
+      };
+      life_style?: {
+        data: News[];
+      };
+      entrepreneurs?: {
+        data: News[];
+      };
+      entertainment_media?: {
+        data: News[];
+      };
+      awards_events?: {
+        data: News[];
+      };
+    };
+  };
+}

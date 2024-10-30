@@ -12,13 +12,13 @@ const Header = () => {
     return (
         <header className='w-full pt-2'>
             <div className='container '>
-                <nav className=' relative flex items-center justify-center  border-black' style={{ borderStyle: "double" }}>
+                <nav className=' relative flex items-center justify-center' style={{ borderStyle: "double" }}>
                     <Image src={Logo} width={500} height={500} alt='the executive headlines' className='mx-auto' />
                     <div className='absolute right-0'>
                         <CustomSearchBar />
                     </div>
                 </nav>
-                <div className="relative w-full  flex items-center justify-center border-y-2 border-black mt-2 max-md:hidden">
+                <div className="relative w-full  flex items-center justify-center border-y-4 border-double border-gray-300 mt-2 max-md:hidden">
                     <div
                         className={(" inset-x-0 max-w-2xl mx-auto z-50 max-lg:tracking-tight")}
                     >

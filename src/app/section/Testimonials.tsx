@@ -3,6 +3,7 @@ import { testimonials } from '@/constants/testimonials'
 import React from 'react'
 import { motion } from 'framer-motion'
 import { cn } from '@/lib/cn'
+import HeadingTitle from '@/components/shared/HeadingTitle'
 
 const firstColumn = testimonials.slice(0, 3)
 const secondColumn = testimonials.slice(3, 6)
@@ -48,13 +49,12 @@ const TestimonialsColumn = (props: { testimonials: typeof testimonials, classNam
 
 export function Testimonials() {
     return (
-        <section className='bg-white py-24'>
+        <section className='bg-white py-6'>
             <div className='container '>
+                <HeadingTitle>Testimonials</HeadingTitle>
                 <div className='max-w-[540px] mx-auto'>
                     <div className='flex items-center justify-center'>
-                        <div className='tag'>Testimonials</div>
                     </div>
-                    <h2 className='section-title mt-5'>What our users say</h2>
                     <p className='section-description mt-5'>
                         From intuitive design to powerful design, our app has become an element essential tool for users  around the world.
                     </p>
