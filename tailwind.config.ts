@@ -20,8 +20,8 @@ const config: Config = {
       container: {
         center: true,
         padding: {
-          DEFAULT: "20px",
-          lg: "80px",
+          padding: "2rem",
+          lg: "60px",
         },
       },
     },

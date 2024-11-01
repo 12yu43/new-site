@@ -1,6 +1,7 @@
 import { Endpoints } from "@/constants/endpoints";
 import { cn } from "@/lib/cn";
 import Image from "next/image";
+import Link from "next/link";
 
 export const BentoGrid = ({
     className,
@@ -37,7 +38,7 @@ export const BentoGridItem = ({
 
 }) => {
     return (
-        <div
+        <Link href={url}
             className={cn(
                 "row-span-1 relative rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-input p-4  bg-white border justify-between flex flex-col space-y-4 overflow-hidden hover:scale-105 cursor-pointer",
                 className
@@ -51,6 +52,6 @@ export const BentoGridItem = ({
                     {title}
                 </div>
             </div>
-        </div>
+        </Link>
     );
 };

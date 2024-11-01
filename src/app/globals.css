@@ -19,7 +19,7 @@
     @apply text-sm inline-flex border border-[#222]/10 px-3 py-1 rounded-lg tracking-tight hover:bg-[#010D3E] hover:text-white ease-in-out duration-300;
   }
   .section-title {
-    @apply  text-3xl md:text-[48px] md:leading-[60px] font-bold tracking-tighter bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text;
+    @apply text-3xl md:text-[48px] md:leading-[60px] font-bold tracking-tighter bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text;
   }
   .section-description {
     @apply text-center text-[22px] leading-[30px] tracking-tight text-[#010D3E];
@@ -30,7 +30,7 @@
   .image-effect {
     @apply hover:scale-110 duration-300 ease-in-out rounded-lg object-cover;
   }
-  .sub-heading{
-    @apply relative text-nowrap before:relative w-1 before:h-full before:rounded-full bg-black before:content-[""] before:pr-4 capitalize
+  .sub-heading {
+    @apply relative text-nowrap before:relative w-1 before:h-full before:rounded-full bg-black before:content-[""] before:pr-4 capitalize;
   }
 }

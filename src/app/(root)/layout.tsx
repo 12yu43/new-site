@@ -8,7 +8,7 @@ export default function Layout({
     return (
         <>
             <Header />
-            <main className="mt-10">
+            <main className="mt-14 md:mt-10 min-h-[calc(100vh-200px)]">
                 {children}
             </main>
         </>

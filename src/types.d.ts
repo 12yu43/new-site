@@ -45,7 +45,7 @@ interface ApiResponse {
     };
     news?: {
       sports?: {
-      data: News[];
+        data: News[];
       };
       life_style?: {
         data: News[];
@@ -62,3 +62,36 @@ interface ApiResponse {
     };
   };
 }
+type NewsDetailResponse = {
+  data: {
+    id: number;
+    title: string;
+    cat_slug: string;
+    images: string;
+    content_details: string;
+    status: string;
+    meta_description: string;
+    meta_title: string;
+    meta_keywords: string;
+    image_alt: string;
+    url: string;
+    created_at: string;
+    updated_at: string;
+  };
+};
+
+type NewsDetailType = {
+  id: number;
+  title: string;
+  cat_slug: string;
+  images: string;
+  content_details: string;
+  status: string;
+  meta_description: string;
+  meta_title: string;
+  meta_keywords: string;
+  image_alt: string;
+  url: string;
+  created_at: string;
+  updated_at: string;
+};

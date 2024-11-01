@@ -6,9 +6,9 @@ import React from 'react'
 const DisplayNewsCard = ({ href, image_url, title, image_alt }: { href: string, title: string, image_url: string, image_alt?: string }) => {
     return (
         <article>
-            <Link href={href}>
+            <Link href={href} className='hover:underline'>
                 <div className='w-[210px] h-[120px] overflow-hidden rounded-lg relative mx-auto mb-2'>
-                    {!!image_url && <Image src={Endpoints.ImageUrl + image_url} alt={image_alt || title} fill className='image-effect' />}
+                    {!!image_url && <Image src={Endpoints.ImageUrl + image_url} alt={image_alt || title} width={250} height={150} className='image-effect' />}
                 </div>
                 <p className='mx-auto w-[200px] line-clamp-3 font-semibold text-xs text-slate-800'>{title}</p>
             </Link>

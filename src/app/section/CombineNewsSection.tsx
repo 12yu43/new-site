@@ -9,11 +9,11 @@ const NewsItems = ({ title, data }: { title: string, data: any }) => {
         <h1 className='sub-heading text-2xl mb-8'>{title}</h1>
         <>
             {
-                data.slice(0, 3).map((news: News) => (
+                data.slice(0, 4).map((news: News) => (
                     <Link href={'/'} key={news.id}>
                         <article className='flex lg:flex-nowrap flex-wrap gap-4 border-b-2 border-dotted py-2 border-black'>
-                            <Image src={Endpoints.ImageUrl + news.images} alt={news.image_alt} width={250} height={250} className='w-[250px] h-[150px] lg:w-[150xp] lg:h-[100px]' />
-                            <p className='text-lg lg:text-sm hover:underline'>
+                            <Image src={Endpoints.ImageUrl + news.images} alt={news.image_alt} width={250} height={250} className='w-[250px] h-[130px] lg:w-[150xp] lg:h-[100px]' />
+                            <p className='sm:text-lg lg:text-sm hover:underline'>
                                 {
                                     news.title
                                 }

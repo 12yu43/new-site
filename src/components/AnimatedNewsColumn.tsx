@@ -17,6 +17,7 @@ const AnimatedNewsColumn = (props: { duration?: number, data: News[], className:
             controls.set({ y: 0 })
             await controls.start({
                 y: "-50%",
+                // x:"-50%",
                 transition: {
                     duration: props.duration || 30,
                     ease: "linear",
@@ -34,17 +35,19 @@ const AnimatedNewsColumn = (props: { duration?: number, data: News[], className:
 
     return (
         <div
-            className={cn('overflow-hidden', props.className)}
+            className={cn('overflow-hidden ', props.className)}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
             <motion.div
                 animate={controls}
-                className={cn('flex flex-col gap-6 pb-6')}>
+                className={cn('flex flex-row lg:flex-col gap-6 pb-6')}>
                 {[...new Array(2)].fill(0).map((_, idx) => (
                     <React.Fragment key={idx}>
-                        {props.data?.slice(0, 8).map(({ images, image_alt, title, url }, i) => (
-                            <Link href={''} className='group' key={i}>
+                        {props.data?.slice(0, 8).map(({ images, image_alt, title, url, cat_slug }, i) => (
+                            <Link href={cat_slug
+                                .replace(/\s+/g, "-")
+                                .toLowerCase() + "/" + url} className='group' key={i}>
                                 <Image src={Endpoints.ImageUrl + images} alt={image_alt} width={100} height={100} />
                                 <div className='flex items-center gap-2 mt-5'>
                                     <div className='flex flex-col'>

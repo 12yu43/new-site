@@ -20,12 +20,13 @@ export const Navbar = ({
   const [active, setActive] = useState<string | null>(null);
   const { scrollYProgress } = useScroll();
 
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(false);  
+  console.log(scrollYProgress.get())
 
   useMotionValueEvent(scrollYProgress, "change", (current) => {
     // Check if current is not undefined and is a number
     if (typeof current === "number") {
-      if (scrollYProgress.get() > 0.04) {
+      if (scrollYProgress.get() > 0.03) {
         setVisible(true);
       }
       else {
