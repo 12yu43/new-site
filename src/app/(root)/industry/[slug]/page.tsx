@@ -22,11 +22,11 @@ const IndustryPage = async ({ params }: { params: { slug: string } }) => {
   try {
     const res = await fetch(getFullUrl(`${Endpoints.GetNews}/${"industry"}/${slug}`))
     data = await res.json()
-    if (!data || !data.data) {
-      redirect('/')
-    }
   } catch (error) {
     console.log(error)
+  }
+  if (!data || !data.data) {
+    redirect('/')
   }
   return (
     <div className='container'>

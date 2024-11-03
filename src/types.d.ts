@@ -150,5 +150,20 @@ type MagazineType = {
   created_at: string;
   updated_at?: string;
 };
-
+type ClientTestimonial = {
+  id: number;
+  client_name: string;
+  image: string;
+  client_position: string;
+  company_name: string;
+  message: string;
+  created_at: string; // ISO date string
+  updated_at: string; // ISO date string
+};
+type ClientResponseType = {
+  status: boolean;
+  data: {
+    data: ClientTestimonial[];
+  };
+};
 type SearchParams = { [key: string]: string | string[] | undefined };
