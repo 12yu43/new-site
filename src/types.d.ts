@@ -95,3 +95,60 @@ type NewsDetailType = {
   created_at: string;
   updated_at: string;
 };
+
+type PaginationLink = {
+  url: string | null;
+  label: string;
+  active: boolean;
+};
+type DataObject = {
+  id: number;
+  title: string;
+  cat_slug: string;
+  images: string;
+  content_details: string;
+  status: string;
+  meta_description: string;
+  meta_title: string;
+  meta_keywords: string;
+  image_alt: string;
+  url: string;
+};
+type NewsResponseType = {
+  status: boolean;
+  data: {
+    current_page: number;
+    data: DataObject[];
+    first_page_url: string;
+    from: number;
+    last_page: number;
+    last_page_url: string;
+    links: PaginationLink[];
+    next_page_url: string | null;
+    path: string;
+    per_page: number;
+    prev_page_url: string | null;
+    to: number;
+    total: number;
+  };
+};
+type MagazineType = {
+  id: number;
+  issue_title: string;
+  issue_month: string;
+  issue_year: number;
+  issue_logo: string;
+  magazine_cover_image: string;
+  slug: string;
+  status: number;
+  meta_title: string;
+  meta_description: string;
+  meta_keywords: string;
+  image_alt: string;
+  url: string;
+  digi_link: string | null;
+  created_at: string;
+  updated_at?: string;
+};
+
+type SearchParams = { [key: string]: string | string[] | undefined };

@@ -1,3 +1,4 @@
+import BreadCrumb from "@/components/shared/BreadCrumb";
 import Header from "@/components/shared/Header";
 
 export default function Layout({
@@ -6,11 +7,12 @@ export default function Layout({
     children: React.ReactNode;
 }>) {
     return (
-        <>
+        <div className="">
             <Header />
-            <main className="mt-14 md:mt-10 min-h-[calc(100vh-200px)]">
+            <BreadCrumb />
+            <main className="my-14 md:my-10 min-h-[calc(100vh-200px)]">
                 {children}
             </main>
-        </>
+        </div>
     );
 }

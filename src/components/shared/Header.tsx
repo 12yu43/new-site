@@ -14,7 +14,7 @@ const Header = () => {
             <div className='container '>
                 <nav className=' relative flex items-center justify-center' style={{ borderStyle: "double" }}>
                     <Image src={Logo} width={500} height={500} alt='the executive headlines' className='mx-auto' />
-                    <div className='absolute max-md:top-14 -right-10 md:right-0'>
+                    <div className='absolute max-md:top-14 -right-4 md:right-0'>
                         <CustomSearchBar />
                     </div>
                 </nav>

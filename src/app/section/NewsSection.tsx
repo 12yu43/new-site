@@ -11,7 +11,7 @@ export function NewsSection({ data }: { data: ApiResponse }) {
             <div className='container '>
                 <HeadingTitle>Cover Features</HeadingTitle>
                 <BentoGrid className="pt-8">
-                    {data.data.cover_story?.slice(0, 6).map((item, i) => (
+                    {data.data.cover_story?.slice(0, 8).map((item, i) => (
                         <BentoGridItem
                             key={i}
                             title={item.title}

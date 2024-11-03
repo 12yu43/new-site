@@ -8,16 +8,11 @@ export async function getNewsDetail(
   type: string,
   slug: string
 ): Promise<NewsDetailResponse | null> {
-  console.log(getFullUrl(`${Endpoints.GetNewsDetail}/${type}/${slug}`));
+  const url = getFullUrl(`${Endpoints.GetNewsDetail}/${type}/${slug}`);
+  console.log(url);
   try {
-    const res = await fetch(
-      getFullUrl(`${Endpoints.GetNewsDetail}/${type}/${slug}`),
-      {
-        method: "GET",
-      }
-    );
+    const res = await fetch(url);
     const data: NewsDetailResponse = await res.json();
-    console.log(data);
     return data;
   } catch (error) {
     console.log(error);

@@ -13,7 +13,7 @@ export const BentoGrid = ({
     return (
         <div
             className={cn(
-                "grid md:auto-rows-[18rem] grid-cols-1 md:grid-cols-3 gap-4 max-w-7xl mx-auto ",
+                "grid md:auto-rows-[15rem] grid-cols-1 md:grid-cols-4 gap-4 max-w-7xl mx-auto ",
                 className
             )}
         >
@@ -45,10 +45,10 @@ export const BentoGridItem = ({
             )}
         >
             <div className="h-[185px] overflow-hidden">
-                <Image src={Endpoints.ImageUrl + images} alt={image_alt} width={500} height={150} className="rounded-sm" />
+                <Image src={Endpoints.ImageUrl + images} alt={image_alt} width={500} height={250} className="rounded-sm max-h-[150px]" />
             </div>
             <div className="group-hover/bento:translate-x-2 transition duration-200">
-                <div className=" font-bold text-neutral-600  my-2 line-clamp-2">
+                <div className=" font-bold text-neutral-600  line-clamp-2">
                     {title}
                 </div>
             </div>

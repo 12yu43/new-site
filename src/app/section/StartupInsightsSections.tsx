@@ -10,7 +10,7 @@ const StartupInsightsSections = ({ data }: { data: ApiResponse }) => {
             <div className='container '>
                 <HeadingTitle>Startup Insights</HeadingTitle>
                 <BentoGrid className="pt-8">
-                    {data.data.startup_insight?.slice(0, 6).map((item, i) => (
+                    {data.data.startup_insight?.slice(0, 8).map((item, i) => (
                         <BentoGridItem
                             key={i}
                             title={item.title}
