@@ -1,9 +1,10 @@
 import React from 'react'
+import DisplayInfo from '../_components/DisplayInfo'
 
-const page = () => {
+const ContactUsPage = () => {
     return (
-        <div>page</div>
+        <> <DisplayInfo pageTitle='contact-us' /></>
     )
 }
 
-export default page
+export default ContactUsPage

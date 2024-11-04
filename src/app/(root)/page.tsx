@@ -6,6 +6,7 @@ import LeaderShipProfileSection from '../section/LeaderShipProfileSection'
 import StartupInsightsSections from '../section/StartupInsightsSections'
 import CombineNewsSection from '../section/CombineNewsSection'
 import { CoverFeature } from '../section/CoverFeature'
+import VideoSection from '../section/VideoSection'
 
 const Home = async () => {
     const data = await getHomeNews()
@@ -16,6 +17,7 @@ const Home = async () => {
         <>
             <HeroSection data={data} />
             <CoverFeature data={data} />
+            <VideoSection />
             <LeaderShipProfileSection data={data} />
             <CombineNewsSection data={data} />
             <StartupInsightsSections data={data} />

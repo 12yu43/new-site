@@ -1,9 +1,10 @@
 import React from 'react'
+import DisplayInfo from '../_components/DisplayInfo'
 
-const page = () => {
+const PrivacyPolicyPage = () => {
   return (
-    <div>page</div>
+    <DisplayInfo pageTitle='privacy-policy' />
   )
 }
 
-export default page
+export default PrivacyPolicyPage

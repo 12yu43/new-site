@@ -1,9 +1,10 @@
 import React from 'react'
+import DisplayInfo from '../_components/DisplayInfo'
 
-const page = () => {
+const ReprintPermissionPage = () => {
   return (
-    <div>page</div>
+    <DisplayInfo pageTitle='reprint-permission' />
   )
 }
 
-export default page
+export default ReprintPermissionPage

@@ -21,15 +21,12 @@ export const NewsDetail = ({ data }: { data: NewsDetailType }) => {
                         className='[&>p]:text-gray-800 [&>ul]:text-gray-800 [&>ol]:text-gray-800 [&>h2]:text-2xl [&>p]:pt-4'
                     />
                 </div>
-                <div className='w-[280px] sticky top-20 h-[calc(100vh-85px)]'>
+                <div className='w-[300px] sticky top-20 h-[calc(100vh-85px)]'>
                     <CopyLink />
-                  <div className="border-4 border-black p-2">
-                        <h1 className="sub-heading  text-2xl md:text-3xl font-semibold">
-                            Featured News
-                        </h1>
+                    <div className="border-2  p-2">
+                        <h1 className="sub-heading text-2xl font-semibold">Featured News</h1>
 
-
-                  </div>
+                    </div>
                 </div>
             </div>
         </div>

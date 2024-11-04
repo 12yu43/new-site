@@ -1,9 +1,10 @@
 import React from 'react'
+import DisplayInfo from '../_components/DisplayInfo'
 
-const page = () => {
+const DisclaimerPage = () => {
     return (
-        <div>page</div>
+        <DisplayInfo pageTitle='disclaimer' />
     )
 }
 
-export default page
+export default DisclaimerPage
