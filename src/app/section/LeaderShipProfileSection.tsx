@@ -15,17 +15,14 @@ const LeaderShipProfileSection = ({ data }: { data: ApiResponse }) => {
                             key={i}
                             title={item.title}
                             image_alt={item.image_alt}
-                            url={item?.cat_slug
-                                .replace(/\s+/g, "-")
-                                .toLowerCase() + "/" + item?.url}
+                            url={'/feature' + "/" + item?.url}
                             images={item.images}
 
-                        // className={i === 3 || i === 6 ? "md:col-span-2" : ""}
                         />
                     ))}
                 </BentoGrid>
                 <div className='flex items-center justify-center mt-8'>
-                    <Link className="tag" href={'/'}>
+                    <Link className="tag" href={'/featured-vendors'}>
                         View more
                     </Link>
                 </div>

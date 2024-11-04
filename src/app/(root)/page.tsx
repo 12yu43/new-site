@@ -1,27 +1,26 @@
 import React from 'react'
 import { Testimonials } from '../section/Testimonials'
-import { NewsSection } from '../section/NewsSection'
 import HeroSection from '../section/HeroSection'
 import { getHomeNews } from '@/lib/actions/getHomeNews'
 import LeaderShipProfileSection from '../section/LeaderShipProfileSection'
 import StartupInsightsSections from '../section/StartupInsightsSections'
 import CombineNewsSection from '../section/CombineNewsSection'
+import { CoverFeature } from '../section/CoverFeature'
 
 const Home = async () => {
     const data = await getHomeNews()
-
     if (!data) {
         return <>Unable to fetch data</>
     }
     return (
-        <div>
+        <>
             <HeroSection data={data} />
-            <NewsSection data={data} />
+            <CoverFeature data={data} />
             <LeaderShipProfileSection data={data} />
             <CombineNewsSection data={data} />
             <StartupInsightsSections data={data} />
-            <Testimonials />
-        </div>
+            <Testimonials data={data} />
+        </>
     )
 }
 

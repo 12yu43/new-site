@@ -1,9 +1,6 @@
 import NewsCard from '@/components/NewsCard'
-import { NewsDetail } from '@/components/NewsDetail'
 import { Endpoints } from '@/constants/endpoints'
 import { getFullUrl } from '@/lib/utils'
-import Image from 'next/image'
-import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import React from 'react'
 
@@ -21,7 +18,7 @@ const CxoPage = async () => {
   return (
     <div className='container space-y-4'>
       {
-        cxos.data.data.map((item: any) => (
+        cxos.data.data?.map((item: any) => (
           <NewsCard item={item} key={item.id} url={`/cxo/${item.url}`} />
         ))
       }

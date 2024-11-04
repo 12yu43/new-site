@@ -25,7 +25,7 @@ const StartupInsightsSections = ({ data }: { data: ApiResponse }) => {
                     ))}
                 </BentoGrid>
                 <div className='flex items-center justify-center mt-8'>
-                    <Link className="tag" href={'/'}>
+                    <Link className="tag" href={'/startup-insights'}>
                         View more
                     </Link>
                 </div>

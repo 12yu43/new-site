@@ -52,14 +52,14 @@ export const navItems: MenuItem[] = [
   {
     label: "News/Blogs",
     subMenu: [
-      { label: "Sports", path: "/news-blogs/sports" },
-      { label: "Life Style", path: "/news-blogs/lifestyle" },
-      { label: "Entrepreneurs", path: "/news-blogs/entrepreneurs" },
+      { label: "Sports", path: "/sports" },
+      { label: "Life Style", path: "/lifestyle" },
+      { label: "Entrepreneurs", path: "/entrepreneurs" },
       {
         label: "Entertainment & Media",
-        path: "/news-blogs/entertainment-media",
+        path: "/entertainment-media",
       },
-      { label: "Awards & Events", path: "/news-blogs/awards-events" },
+      { label: "Awards & Events", path: "/awards-events" },
     ],
   },
 ];

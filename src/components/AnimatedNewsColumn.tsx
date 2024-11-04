@@ -8,7 +8,7 @@ import React, { useEffect } from 'react'
 import { motion, useAnimationControls } from 'framer-motion'
 import Link from 'next/link'
 
-const AnimatedNewsColumn = (props: { duration?: number, data: News[], className: string }) => {
+const AnimatedNewsColumn = (props: { duration?: number, data: News[], url?: string, className: string }) => {
     const controls = useAnimationControls()
     const [isHovered, setIsHovered] = React.useState(false)
 
@@ -32,7 +32,8 @@ const AnimatedNewsColumn = (props: { duration?: number, data: News[], className:
             controls.stop()
         }
     }, [isHovered, controls, props.duration])
-
+    // console.log(props.data)
+    console.log(props.url)
     return (
         <div
             className={cn('overflow-hidden ', props.className)}
@@ -45,9 +46,7 @@ const AnimatedNewsColumn = (props: { duration?: number, data: News[], className:
                 {[...new Array(2)].fill(0).map((_, idx) => (
                     <React.Fragment key={idx}>
                         {props.data?.slice(0, 8).map(({ images, image_alt, title, url, cat_slug }, i) => (
-                            <Link href={cat_slug
-                                .replace(/\s+/g, "-")
-                                .toLowerCase() + "/" + url} className='group' key={i}>
+                            <Link href={props.url + '/' + url || "#"} className='group' key={i}>
                                 <Image src={Endpoints.ImageUrl + images} alt={image_alt} width={100} height={100} />
                                 <div className='flex items-center gap-2 mt-5'>
                                     <div className='flex flex-col'>

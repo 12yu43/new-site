@@ -1,36 +1,33 @@
-"use client"
-import { testimonials } from '@/constants/testimonials'
 import React from 'react'
-import { motion } from 'framer-motion'
-import { cn } from '@/lib/cn'
 import HeadingTitle from '@/components/shared/HeadingTitle'
+import { ApiResponse } from '@/types'
+import { TestimonialsColumn } from '@/components/TestimonialColumn'
+import Image from 'next/image'
+import { Endpoints } from '@/constants/endpoints'
 
-export const TestimonialsColumn = (props: { children: React.ReactNode, className?: string, duration?: number }) => {
-
+function TestimonialClientCard({ client }: { client: { message: string, client_name: string, position: string, company_name: string, image: string } }) {
     return (
-        <div className={props.className}>
-            <motion.div animate={{
-                translateY: "-50%"
-            }}
-                transition={{
-                    repeatType: "loop",
-                    repeat: Infinity,
-                    ease: "linear",
-                    duration: props.duration || 10
-                }}
-                className={cn('flex flex-col gap-6 pb-6 ')}>
-                {[...new Array(2).fill(0).map((_, idx) => (
-                    <React.Fragment key={idx}>
-                        <>{props.children}</>
-                    </React.Fragment>
-                ))]}
+        <article className="testimonialCard" >
+            <div className="flex flex-col h-full justify-between pt-2">
+                <q className="leading-5 tracking-tight line-clamp-6">{client.message}</q>
+                <div className='flex items-center gap-2 mt-5 '>
+                    <Image src={Endpoints.ImageUrl + client.image} alt={client.client_name} width={50} height={50} className='size-12 rounded-full' />
+                    <div className='flex flex-col'>
+                        <div className="font-medium tracking-tight leading-5">{client.client_name}</div>
+                        <div className="leading-5 tracking-tight">{client.position}</div>
+                        <div className="leading-5 tracking-tight">{client.company_name}</div>
+                    </div>
+                </div>
 
-            </motion.div>
-        </div>
+            </div>
+        </article>
     )
 }
 
-export function Testimonials() {
+export async function Testimonials({ data }: { data: ApiResponse }) {
+    const res = await fetch('https://executiveheadlines.com/admin/api/home?page=2')
+    const clients = await res.json()
+    const totalClients = [...data.data.client_speak?.data as [], ...clients.data.client_speak.data]
     return (
         <section className='bg-white py-6'>
             <div className='container '>
@@ -39,59 +36,28 @@ export function Testimonials() {
                     <div className='flex items-center justify-center'>
                     </div>
                     <p className='section-description mt-5'>
-                        From intuitive design to powerful design, our app has become an element essential tool for users  around the world.
+                        Client success is our success
                     </p>
                 </div>
-                <div className='flex justify-center gap-6 mt-10  [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[739px] overflow-hidden'>
-                    <TestimonialsColumn className='hidden md:block' duration={18}>
-                        {
-                            testimonials.slice(0.3).map(({ text, name, username }, i) => (
-                                <div
-                                    className='card' key={i}>
-                                    <div>{text}</div>
-                                    <div className='flex items-center gap-2 mt-5'>
-                                        <div className='flex flex-col'>
-                                            <div className='font-medium tracking-tight leading-5'>{name}</div>
-                                            <div className='leading-5 tracking-tight'>{username}</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))
-                        }
+                <div className="grid grid-rows-3 justify-center gap-6 mt-10  [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]  max-w-6xl mx-auto  overflow-hidden">
+                    <TestimonialsColumn className="flex" duration={40} directionX="left">
+                        {totalClients.slice(0, 6).map((client: any, i) => (
+                            <TestimonialClientCard client={client} key={i} />
+                        ))}
                     </TestimonialsColumn>
-                    <TestimonialsColumn className='hidden md:block' duration={19} >
-                        {
-                            testimonials.slice(3, 6).map(({ text, name, username }, i) => (
-                                <div
-                                    className='card' key={i}>
-                                    <div>{text}</div>
-                                    <div className='flex items-center gap-2 mt-5'>
-                                        <div className='flex flex-col'>
-                                            <div className='font-medium tracking-tight leading-5'>{name}</div>
-                                            <div className='leading-5 tracking-tight'>{username}</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))
-                        }
+                    <TestimonialsColumn className="flex" duration={50} directionX="right">
+                        {totalClients.slice(6, 12).map((client: any, i) => (
+                            <TestimonialClientCard client={client} key={i} />
+                        ))}
                     </TestimonialsColumn>
-                    <TestimonialsColumn className='hidden lg:block' duration={17} >
-                        {
-                            testimonials.slice(6, 9).map(({ text, name, username }, i) => (
-                                <div
-                                    className='card' key={i}>
-                                    <div>{text}</div>
-                                    <div className='flex items-center gap-2 mt-5'>
-                                        <div className='flex flex-col'>
-                                            <div className='font-medium tracking-tight leading-5'>{name}</div>
-                                            <div className='leading-5 tracking-tight'>{username}</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))
-                        }
+
+                    <TestimonialsColumn className="flex" duration={55} directionX="left">
+                        {totalClients.slice(11, 16).map((client: any, i) => (
+                            <TestimonialClientCard client={client} key={i} />
+                        ))}
                     </TestimonialsColumn>
                 </div>
+
 
             </div>
         </section>

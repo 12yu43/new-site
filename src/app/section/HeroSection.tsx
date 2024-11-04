@@ -75,9 +75,7 @@ const HeroSection = async ({ data }: { data: ApiResponse }) => {
                         <h1 className='sub-heading font-semibold md:hidden mb-2'>Business News</h1>
                         <div className='flex flex-row max-md:overflow-x-scroll items-center md:flex-col border-dashed gap-5 text-sm'>
                             {data.data.business?.slice(0, 6).map((item) => (
-                                <DisplayNewsCard key={item.id} href={item?.cat_slug
-                                    .replace(/\s+/g, "-")
-                                    .toLowerCase() + "/" + item?.url} image_alt={item.image_alt} image_url={item.images} title={item.title} />
+                                <DisplayNewsCard key={item.id} href={"/cxo/" + item?.url} image_alt={item.image_alt} image_url={item.images} title={item.title} />
                             ))}
                         </div>
                     </div>
