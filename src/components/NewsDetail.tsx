@@ -1,11 +1,12 @@
 import { Endpoints } from "@/constants/endpoints"
 import { NewsDetailType } from "@/types"
 import Image from "next/image"
+import CopyLink from "./CopyLink"
 
 export const NewsDetail = ({ data }: { data: NewsDetailType }) => {
     return (
         <div className='container'>
-            <div className='flex gap-4'>
+            <div className='flex gap-6'>
                 <div className='flex-1 w-full'>
                     <h1 className='text-2xl md:text-3xl font-semibold'>
                         {data.title}
@@ -20,11 +21,15 @@ export const NewsDetail = ({ data }: { data: NewsDetailType }) => {
                         className='[&>p]:text-gray-800 [&>ul]:text-gray-800 [&>ol]:text-gray-800 [&>h2]:text-2xl [&>p]:pt-4'
                     />
                 </div>
-                <div className='w-[260px] sticky top-20 h-[calc(100vh-85px)]'>
-                    <h1>
-                        Featured News
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque praesentium nobis a alias quo, eius est ipsa distinctio provident facilis. Eos unde amet, reprehenderit doloribus optio quasi illo quaerat perferendis officiis saepe dignissimos aliquam delectus, enim assumenda pariatur in sit.
-                    </h1>
+                <div className='w-[280px] sticky top-20 h-[calc(100vh-85px)]'>
+                    <CopyLink />
+                  <div className="border-4 border-black p-2">
+                        <h1 className="sub-heading  text-2xl md:text-3xl font-semibold">
+                            Featured News
+                        </h1>
+
+
+                  </div>
                 </div>
             </div>
         </div>
