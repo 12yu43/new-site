@@ -41,7 +41,7 @@ const Footer = () => {
                             Best Business Magazine and news platform. The Executive
                             Headlines genuinely support all top business leaders and the
                             innovative technological ecosystem that surrounds and
-                            engages with them. The company's logo encapsulates our
+                            engages with them. The company&apos;s logo encapsulates our
                             entire idea; it comprises a magazine for influential
                             business leaders and decision-makers.&nbsp;
                             {isExpanded ? (
