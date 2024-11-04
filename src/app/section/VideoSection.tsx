@@ -1,9 +1,9 @@
 import React from 'react'
-import { getVideoId, videos } from '../(root)/(staticpages)/video/page';
 import Link from 'next/link';
 import Image from 'next/image';
 import ytBtnImage from '../../public/assets/images/ytbtn.png'
 import HeadingTitle from '@/components/shared/HeadingTitle';
+import { getVideoId, videos } from '@/constants/videos';
 
 const VideoSection = () => {
     return (
