@@ -52,7 +52,7 @@ const Magazine = async ({ params }: { params: { slug: string } }) => {
             <Image src={Endpoints.ImageUrl + data.data.magazine.magazine_cover_image} alt='Cover story' width={400} height={400} className='border-2 border-red-500' />
             <div className=''>
               <div className="p-2"
-                dangerouslySetInnerHTML={{ __html: `${data.data.coverstory?.content_details.substring(0, 1300)}...` } || ""}
+                dangerouslySetInnerHTML={{ __html: `${data.data.coverstory?.content_details.substring(0, 1300)}...` || "" }}
               >
               </div>
               <Link className='text-red-500 text-center mt-4 inline-block bg-black p-3 font-semibold' href={`/cover-story/${data.data.coverstory.url}`}>Read More {">>"}</Link>
