@@ -21,7 +21,7 @@ const config: Config = {
         center: true,
         padding: {
           padding: "2rem",
-          lg: "60px",
+          lg: "1rem",
         },
       },
     },

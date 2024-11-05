@@ -1,3 +1,4 @@
+import { NewsDetail } from '@/components/NewsDetail'
 import { getNewsDetail } from '@/lib/actions/getNews'
 import { redirect } from 'next/navigation'
 import React from 'react'
@@ -7,9 +8,10 @@ const StartUpInsights = async ({ params }: { params: { slug: string } }) => {
     if (!data || !data.data) {
         redirect('/')
     }
-
     return (
-        <div>StartUpInsights</div>
+        <>
+            <NewsDetail data={data.data} />
+        </>
     )
 }
 
