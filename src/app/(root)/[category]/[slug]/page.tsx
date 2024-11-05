@@ -48,7 +48,7 @@ const CategoryPage = async ({ params }: { params: { category: string, slug: stri
     }
 
     const data = await getNewsDetail(type, params.slug)
-    if (!data || !data.data) {
+    if (!data) {
         redirect('/')
     }
     return (

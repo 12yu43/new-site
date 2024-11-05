@@ -24,7 +24,7 @@ const CustomSearchBar = () => {
 
     return (
         <div
-            className='relative transition-all w-[50px] h-[50px] shadow-xl ease-in-out z-[4000] bg-gray-50 border-4 border-white rounded-full p-1 hover:w-[260px] flex items-center cursor-pointer group duration-1000'
+            className='relative transition-all w-[50px] h-[50px] shadow-xl ease-in-out z-[2000] bg-gray-50 border-4 border-white rounded-full p-1 hover:w-[260px] flex items-center cursor-pointer group duration-1000'
             onMouseEnter={handleFocus}
         >
             <form onSubmit={handleSearch}>

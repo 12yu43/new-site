@@ -9,7 +9,6 @@ const CopyLink = () => {
         navigator.clipboard.writeText(url)
             .then(() => {
                 setIsCopied(true)
-                alert("Link copied to clipboard!");
                 setTimeout(() => {
                     setIsCopied(false)
                 }, 5000);
