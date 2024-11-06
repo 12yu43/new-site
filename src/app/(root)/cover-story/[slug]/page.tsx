@@ -63,7 +63,7 @@ const RelatedStories = async ({ id }: { id: number }) => {
         <AnimatedNewsColumn url={'/cover-story/'} data={stories ?? []} className='lg:h-[570px] p-2 w-full hidden lg:block' />
       </div>
       <div className='lg:hidden space-y-4'>
-        {stories?.sort(() => Math.random() - 0.5).slice(0, 4).map((item) => <BentoGridItem images={item.images} image_alt={item.image_alt} url={'/cover-story/' + item.url} title={item.title} />)
+        {stories?.sort(() => Math.random() - 0.5).slice(0, 4).map((item) => <BentoGridItem images={item.images} image_alt={item.image_alt} url={'/cover-story/' + item.url} title={item.title} key={item.id} />)
         }
       </div>
 

@@ -48,7 +48,8 @@ export const NewsDetail = async ({ data }: { data: NewsDetailType }) => {
                                 businessNews.data.data.map((item) => (
                                     <Link href={'/' + item?.cat_slug
                                         .replace(/\s+/g, "-")
-                                        .toLowerCase() + "/" + item?.url} >
+                                        .toLowerCase() + "/" + item?.url}
+                                        key={item.id}>
                                         <p className="font-semibold text-lg border-b-2  border-black hover:underline  line-clamp-2">
                                             {item.title}
                                         </p>
