@@ -166,4 +166,27 @@ type ClientResponseType = {
     data: ClientTestimonial[];
   };
 };
+type coverStories = {
+  status: boolean;
+  data: {
+    magazine: MagazineType;
+    coverstory: {
+      content_details: string;
+      id: number;
+      magazine_id: number;
+      pre_link: string;
+      title: string;
+      images: string;
+      issue_title: string;
+      cat_slug: string;
+      status: 1;
+      meta_title: string;
+      meta_description: string;
+      meta_keywords: string;
+      image_alt: string;
+      url: string;
+    };
+    featuredpeople: any[];
+  };
+};
 type SearchParams = { [key: string]: string | string[] | undefined };

@@ -10,7 +10,7 @@ interface NewsCardProps {
         url: string;
         images: string;
         image_alt: string;
-        meta_description: string;
+        meta_description?: string;
     };
     url: string
 }

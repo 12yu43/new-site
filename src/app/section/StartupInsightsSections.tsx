@@ -35,7 +35,7 @@ const StartupInsightsSections = ({ data }: { data: ApiResponse }) => {
                         </div>
                     </div>
                     <div className='md:w-[400px] bg-gray-50 p-4'>
-                        <h1 className='sub-heading text-3xl font-semibold'>Crypto News</h1>
+                        <h1 className='sub-heading  text-2xl font-semibold'>Crypto News</h1>
 
                         <ul>
 

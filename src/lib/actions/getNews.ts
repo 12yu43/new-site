@@ -6,7 +6,7 @@ import { Endpoints } from "@/constants/endpoints";
 export async function getNewsDetail(
   type: string,
   slug: string
-): Promise<NewsDetailResponse | null> {
+): Promise<NewsDetailResponse | any | null> {
   const url = getFullUrl(`${Endpoints.GetNewsDetail}/${type}/${slug}`);
   try {
     const res = await fetch(url);

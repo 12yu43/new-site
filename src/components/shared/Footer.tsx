@@ -9,7 +9,7 @@ const Footer = () => {
     const year = new Date().getFullYear()
 
     return (
-        <footer className='border-t-8 border-gray-600 border-double bg-slate-50'>
+        <footer className='border-t-8 border-spacing-y-2 border-gray-300 border-double bg-slate-50'>
 
             <div className=' md:pt-8  px-8'>
                 <div className='flex items-center justify-between flex-wrap gap-4'>

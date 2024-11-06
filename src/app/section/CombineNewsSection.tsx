@@ -31,7 +31,7 @@ const CombineNewsSection = ({ data }: { data: ApiResponse }) => {
     return (
         <section className='bg-white py-6 '>
             <div className='container'>
-                <main className="grid  grid-cols-1 lg:grid-cols-3 divide-black lg:divide-x  mx-auto justify-items-center gap-6 ">
+                <main className="grid  grid-cols-1 lg:grid-cols-3 divide-black lg:divide-x  border-y-2 border-black py-4 mx-auto justify-items-center gap-6 ">
                     <NewsItems data={data.data.news?.entrepreneurs?.data} title='Entrepreneurs' url='/entrepreneurs/' />
                     <NewsItems data={data.data.news?.entertainment_media?.data} title='Entertainment Media' url='/entertainment-media/' />
                     <NewsItems data={data.data.news?.awards_events?.data} title='Awards Events' url='/awards-events/' />
