@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation';
 import React from 'react'
 
 const CategoryPage = async ({ params }: { params: { category: string, slug: string } }) => {
-
+    let data: any | null = null
     let type: string = params.category;
     switch (type) {
         case "technology":
@@ -47,17 +47,23 @@ const CategoryPage = async ({ params }: { params: { category: string, slug: stri
             type = "technology";
     }
 
-    const data = await getNewsDetail(type, params.slug)
-    if (!data) {
+    const res = await getNewsDetail(type, params.slug)
+    if (!res || !res.data) {
         redirect('/')
     }
+    if (res.data.people) {
+        data = res.data.people
+    }
+    else if (res.data.magazine) {
+        data = res.data.magazine
+    }
+    else {
+        data = res.data
+    }
     return (
-        <div>
-            <h1 className='text-center text-3xl md:text-5xl font-semibold mb-8 capitalize'>
-                {params.category}
-            </h1>
-            <NewsDetail data={data.data} />
-        </div>
+        <>
+            <NewsDetail data={data} />
+        </>
     )
 }
 

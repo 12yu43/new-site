@@ -13,7 +13,7 @@ const HeroSection = async ({ data }: { data: ApiResponse }) => {
                 <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-9 xl:grid-cols-12 gap-6 py-6 border-y-2'>
                     <div className='col-span-1 md:col-span-2 lg:col-span-6 bg-gray-50'>
                         {data.data.technology?.slice(0, 1).map((item) => (
-                            <Link href={item?.cat_slug
+                            <Link href={'/' + item?.cat_slug
                                 .replace(/\s+/g, "-")
                                 .toLowerCase() + "/" + item?.url}
                                 key={item.id}
@@ -53,7 +53,7 @@ const HeroSection = async ({ data }: { data: ApiResponse }) => {
                                 <h1 className='sub-heading'>Industry News</h1>
                                 <div className='flex flex-col gap-2 mt-2 justify-between h-full'>
                                     {data.data.industry?.slice(0, 7).map((item) => (
-                                        <Link href={item?.cat_slug
+                                        <Link href={'/' + item?.cat_slug
                                             .replace(/\s+/g, "-")
                                             .toLowerCase() + "/" + item?.url} key={item.id} className='hover:underline'>
                                             <article className='border-b flex items-center justify-between gap-4 h-20'>
