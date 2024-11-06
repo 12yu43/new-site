@@ -17,14 +17,14 @@ interface NewsCardProps {
 
 const NewsCard: React.FC<NewsCardProps> = ({ item, url }) => {
     return (
-        <article key={item.id} className='border p-4 rounded-lg flex gap-4 group'>
+        <article key={item.id} className='border p-4 rounded-lg flex flex-col md:flex-row gap-4 group'>
             <Image src={Endpoints.ImageUrl + item.images} alt={item.image_alt} width={250} height={100} className='h-[150px]' />
             <div>
-                <h1 className='text-2xl line-clamp-1 font-semibold group-hover:underline'>
+                <h3 className='text-2xl line-clamp-1 font-semibold group-hover:underline'>
                     <Link href={url}>
                         {item.title.length > 50 ? `${item.title.substring(0, 50)}...` : item.title}
                     </Link>
-                </h1>
+                </h3>
                 <p className='line-clamp-2'>
                     {item.meta_description}
                 </p>

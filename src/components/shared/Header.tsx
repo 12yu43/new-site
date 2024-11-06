@@ -9,6 +9,7 @@ import { HoveredLink, Menu, MenuItem } from '../ui/navbar-menu'
 import { ChevronDown, MenuIcon, XIcon } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
+import { cn } from '@/lib/cn'
 
 const Header = () => {
     const [active, setActive] = useState<string | null>(null);
@@ -79,11 +80,11 @@ const MobileNav = ({ open, setOpen }: { open: boolean, setOpen: (val: boolean) =
                     <XIcon size={24} />
                 </button>
             </div>
-            <ul className="py-4 space-y-2 text-lg px-6">
+            <ul className="py-4 space-y-2 text-lg px-4">
                 {navItems.map((item, i) => (
                     <li key={i} className="relative">
                         <div
-                            className="flex justify-between items-center py-2 cursor-pointer hover:text-blue-600 transition-colors"
+                            className={cn("flex justify-between items-center py-2 px-4 rounded-lg cursor-pointer hover:text-gray-700 transition-colors hover:bg-slate-100 ", expanded === i && "bg-slate-100 text-gray-700")}
                             onClick={() => item.subMenu ? toggleExpand(i) : setOpen(false)}
                         >
                             <Link href={item.path ?? "#"}>{item.label}</Link>
@@ -105,13 +106,13 @@ const MobileNav = ({ open, setOpen }: { open: boolean, setOpen: (val: boolean) =
                                         stiffness: 200,
                                         damping: 25
                                     }}
-                                    className="pl-6 space-y-2 overflow-hidden"
+                                    className="pl-6 space-y-2 overflow-hidden mt-4"
                                 >
                                     {item.subMenu.map((subItem, idx) => (
                                         <li key={idx} className="text-base">
                                             <Link
                                                 href={subItem.path}
-                                                className="block py-1 hover:text-blue-600 transition-colors"
+                                                className="block  hover:text-gray-700 transition-colors hover:bg-slate-100 rounded-lg p-2"
                                                 onClick={() => setOpen(false)}
                                             >
                                                 {subItem.label}
