@@ -31,7 +31,7 @@ interface ApiResponse {
     industry?: News[];
     business?: News[];
     magazine?: {
-      data: News[];
+      data: MagazineType[];
     };
     cover_story?: News[];
     featured_people?: {
