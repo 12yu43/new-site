@@ -1,13 +1,25 @@
 import NewsCard from '@/components/NewsCard'
+import Pagination from '@/components/shared/Pagination'
 import { Endpoints } from '@/constants/endpoints'
 import { getFullUrl } from '@/lib/utils'
+import { SearchParams } from '@/types'
 import { redirect } from 'next/navigation'
 import React from 'react'
 
-const CxoPage = async () => {
+const CxoPage = async ({ searchParams }: { searchParams: SearchParams }) => {
   let cxos = null
+  let page = 1
+  if (searchParams && searchParams.page) {
+    const isNum = +searchParams.page
+    if (!isNaN(isNum)) {
+      page = isNum
+    }
+    else {
+      redirect('/')
+    }
+  }
   try {
-    const res = await fetch(getFullUrl(`${Endpoints.GetCxo}`))
+    const res = await fetch(getFullUrl(`${Endpoints.GetCxo}?page=${page}`))
     cxos = await res.json()
     if (!cxos || !cxos.data) {
       redirect('/')
@@ -22,6 +34,7 @@ const CxoPage = async () => {
           <NewsCard item={item} key={item.id} url={`/cxo/${item.url}`} />
         ))
       }
+      <Pagination url={'/cxo/?'} link={cxos.data.links} />
 
     </div>
   )

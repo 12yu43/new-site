@@ -21,7 +21,10 @@ const Magazine = async ({ params }: { params: { slug: string } }) => {
   }
   return (
     <div>
-      <Image src={Endpoints.ImageUrl + data.data.magazine.issue_logo} alt='magazines' width={400} height={300} className='mx-auto mb-4' />
+      <Link href={`/listing/${data.data.magazine.url}`}>
+        <Image src={Endpoints.ImageUrl + data.data.magazine.issue_logo} alt='magazines' width={400} height={300} className='mx-auto mb-4'
+        title='Know more' />
+      </Link>
       <div className='border-y-2 border-black pb-8 border-dashed'>
         <h1 className='text-3xl md:text-4xl container font-semibold py-4 text-center'>On the <span className='text-red-500'>
           Cover</span></h1>

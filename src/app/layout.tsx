@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Tinos } from 'next/font/google'
+import { Toaster } from "react-hot-toast";
 
 
 export const metadata: Metadata = {
@@ -15,10 +16,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={` ${font.className} font-sans  antialiased`}
       >
+        <Toaster/>
         {children}
       </body>
     </html>

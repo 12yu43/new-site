@@ -3,13 +3,23 @@ import { BentoGridItem } from '@/components/ui/bento-grid';
 import { Endpoints } from '@/constants/endpoints';
 import { getHomeNews } from '@/lib/actions/getHomeNews';
 import { getNewsDetail } from '@/lib/actions/getNews';
-import { ApiResponse, News } from '@/types';
+import { ApiResponse, News, SearchParams } from '@/types';
 import Image from 'next/image';
 import { redirect } from 'next/navigation';
 import React from 'react'
 
-const CoverStory = async ({ params }: { params: { slug: string } }) => {
+const CoverStory = async ({ params, searchParams }: { params: { slug: string }, searchParams: SearchParams }) => {
   let coverStory: any | null = null
+  let page = 1
+  if (searchParams && searchParams.page) {
+    const isNum = +searchParams.page
+    if (!isNaN(isNum)) {
+      page = isNum
+    }
+    else {
+      redirect('/')
+    }
+  }
   try {
     coverStory = await getNewsDetail('cover-story', params.slug);
   } catch (error) {
@@ -29,7 +39,7 @@ const CoverStory = async ({ params }: { params: { slug: string } }) => {
         <div dangerouslySetInnerHTML={{
           __html: coverStory.data.CoverStory?.content_details || "",
         }}
-          className='[&>h3]:text-3xl [&>h3]:mb-4 font-sans [&>h4]:text-lg'
+          className='[&>h3]:text-2xl [&>h3]:mb-4'
         >
 
         </div>

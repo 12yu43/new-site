@@ -1,14 +1,25 @@
+import Pagination from '@/components/shared/Pagination'
 import { Endpoints } from '@/constants/endpoints'
 import { getFullUrl } from '@/lib/utils'
-import { ClientResponseType } from '@/types'
+import { ClientResponseType, SearchParams } from '@/types'
 import Image from 'next/image'
 import { redirect } from 'next/navigation'
 import React from 'react'
 
-const LeaderSpeaksPage = async () => {
+const LeaderSpeaksPage = async ({ searchParams }: { searchParams: SearchParams }) => {
   let leaderSpeaks: ClientResponseType | null = null
+  let page = 1
+  if (searchParams && searchParams.page) {
+    const isNum = +searchParams.page
+    if (!isNaN(isNum)) {
+      page = isNum
+    }
+    else {
+      redirect('/')
+    }
+  }
   try {
-    const res = await fetch(getFullUrl(`${Endpoints.GetClientspeak}`))
+    const res = await fetch(getFullUrl(`${Endpoints.GetClientspeak}?page=${page}`))
     leaderSpeaks = await res.json()
   } catch (error) {
     console.log(error)
@@ -16,6 +27,7 @@ const LeaderSpeaksPage = async () => {
   if (!leaderSpeaks || !leaderSpeaks.data) {
     redirect('/')
   }
+  console.log(leaderSpeaks)
   return (
     <section className='container'>
       <h1 className='text-3xl md:text-5xl text-center font-semibold mb-6 tracking-wider text-red-500'><span className='text-[#052C45]'>
@@ -38,13 +50,13 @@ const LeaderSpeaksPage = async () => {
                   </p>
                 </div>
               </div>
-
-
             </article>
           ))
         }
 
-      </div></section>
+      </div>
+      <Pagination link={leaderSpeaks.data.links} url='/leader-speaks?'/>
+    </section>
   )
 }
 

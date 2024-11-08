@@ -35,7 +35,7 @@ export const NewsDetail = async ({ data }: { data: NewsDetailType }) => {
                         dangerouslySetInnerHTML={{
                             __html: data?.content_details || "",
                         }}
-                        className='[&>p]:text-gray-800 [&>ul]:text-gray-800 [&>ol]:text-gray-800 [&>h2]:text-2xl [&>p]:pt-4'
+                        className='[&>p]:text-gray-800 [&>h3]:text-2xl [&>ul]:text-gray-800 [&>ol]:text-gray-800 [&>h2]:text-2xl [&>p]:pt-4'
                     />
                 </div>
                 <div className='w-[300px] sticky top-20 h-[calc(100vh-100px)]'>

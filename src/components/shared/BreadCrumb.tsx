@@ -35,7 +35,7 @@ const BreadCrumb = () => {
                                 <ChevronRightIcon className="h-5 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
                                 <Link
                                     href={currentPath}
-                                    className={cn(`ml-4 text-sm font-medium text-gray-500 hover:text-gray-700 line-clamp-1  `, `${isActive && "text-black"}`)}
+                                    className={cn(`ml-4 text-sm font-medium text-gray-500 hover:text-gray-700 line-clamp-1  `, `${isActive && "text-gray-800"}`)}
                                 >
                                     {page}
                                 </Link>

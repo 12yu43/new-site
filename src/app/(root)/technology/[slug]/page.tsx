@@ -1,12 +1,13 @@
 import NewsCard from '@/components/NewsCard';
+import Pagination from '@/components/shared/Pagination';
 import { Endpoints } from '@/constants/endpoints';
 import { getFullUrl } from '@/lib/utils';
-import { NewsResponseType } from '@/types';
+import { NewsResponseType, SearchParams } from '@/types';
 import { redirect } from 'next/navigation';
 import React from 'react'
 
 
-const Technology = async ({ params }: { params: { slug: string } }) => {
+const Technology = async ({ params, searchParams }: { params: { slug: string }, searchParams: SearchParams }) => {
     const slugMapping: { [key: string]: string } = {
         "Big-data": "Big data",
         "Data-analytics": "Data analytics",
@@ -19,8 +20,19 @@ const Technology = async ({ params }: { params: { slug: string } }) => {
     };
     const slug = slugMapping[params?.slug] || params?.slug || 'Software';
     let data: NewsResponseType | null = null;
+    let page = 1
+    if (searchParams && searchParams.page) {
+        const isNum = +searchParams.page
+        if (isNaN(isNum)) {
+            redirect('/')
+        }
+        else {
+            page = isNum
+        }
+    }
+
     try {
-        const res = await fetch(getFullUrl(`${Endpoints.GetNews}/${"technology"}/${slug}`))
+        const res = await fetch(getFullUrl(`${Endpoints.GetNews}/${"technology"}/${slug}?page=${page}`))
         data = await res.json()
         if (!data || !data.data) {
             redirect('/')
@@ -28,15 +40,17 @@ const Technology = async ({ params }: { params: { slug: string } }) => {
     } catch (error) {
         console.log(error)
     }
+    console.log(data)
     return (
         <div className='container'>
             <div className='flex flex-col gap-4'>
                 {
                     data?.data.data.map((item) => (
-                        <NewsCard item={item} key={item.id} url={`/${item.cat_slug}/${item?.url}`} />
+                        <NewsCard item={item} key={item.id} url={`/${item.cat_slug.replace(/\s+/g, "-").toLowerCase()}/${item?.url}`} />
                     ))
                 }
             </div>
+            <Pagination link={data?.data.links} url={`/${"technology"}/${slug}?`} />
         </div>
     )
 }

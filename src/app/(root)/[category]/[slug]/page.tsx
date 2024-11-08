@@ -5,12 +5,13 @@ import React from 'react'
 
 const CategoryPage = async ({ params }: { params: { category: string, slug: string } }) => {
     let data: any | null = null
-    let type: string = params.category;
-    switch (type) {
+    let type: string;
+    switch (params.category) {
         case "technology":
             type = "technology";
             break;
         case "healthcare":
+        case "media-&-entertainment":
         case "retail":
         case "telecom":
         case "banking-finance":
@@ -50,6 +51,7 @@ const CategoryPage = async ({ params }: { params: { category: string, slug: stri
     const res = await getNewsDetail(type, params.slug)
     if (!res || !res.data) {
         redirect('/')
+        // return null
     }
     if (res.data.people) {
         data = res.data.people
@@ -60,6 +62,7 @@ const CategoryPage = async ({ params }: { params: { category: string, slug: stri
     else {
         data = res.data
     }
+    console.log(res)
     return (
         <>
             <NewsDetail data={data} />

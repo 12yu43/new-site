@@ -164,6 +164,7 @@ type ClientResponseType = {
   status: boolean;
   data: {
     data: ClientTestimonial[];
+    links:PaginationLink[],
   };
 };
 type coverStories = {
@@ -189,4 +190,6 @@ type coverStories = {
     featuredpeople: any[];
   };
 };
-type SearchParams = { [key: string]: string | string[] | undefined };
+type SearchParams = {
+  [key: string]: string | string[] | undefined;
+};

@@ -1,13 +1,14 @@
+import Pagination from '@/components/shared/Pagination';
 import { BentoGrid, BentoGridItem } from '@/components/ui/bento-grid';
 import { Endpoints } from '@/constants/endpoints';
 import { getFullUrl } from '@/lib/utils';
-import { MagazineType, NewsResponseType, SearchParams } from '@/types'
+import { MagazineType, SearchParams } from '@/types'
 import Image from 'next/image';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import React from 'react'
 
-const Magazines = async () => {
+const Magazines = async ({ searchParams }: { searchParams: SearchParams }) => {
   let magazines: {
     status: boolean
     data: {
@@ -26,10 +27,18 @@ const Magazines = async () => {
     }
 
   } | null = null
-
-
+  let page = 1
+  if (searchParams && searchParams.page) {
+    const isNum = +searchParams.page
+    if (!isNaN(isNum)) {
+      page = isNum
+    }
+    else {
+      redirect('/magazines')
+    }
+  }
   try {
-    const res = await fetch(getFullUrl(`${Endpoints.GetMagazine}`))
+    const res = await fetch(getFullUrl(`${Endpoints.GetMagazine}?page=${page}`))
     magazines = await res.json()
   } catch (error) {
     console.log(error)
@@ -37,6 +46,7 @@ const Magazines = async () => {
   if (!magazines || !magazines.data) {
     redirect('/')
   }
+  console.log(magazines)
   return (
     <div className='container mb-8'>
       <h1 className='text-3xl md:text-5xl text-center font-semibold  tracking-wider'>
@@ -55,6 +65,7 @@ const Magazines = async () => {
           </Link>
         ))}
       </BentoGrid>
+      <Pagination link={magazines.data.links} url={'/magazines?'} />
     </div>
   )
 }

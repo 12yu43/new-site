@@ -17,12 +17,10 @@ interface NewsCardProps {
 }
 
 const NewsCard: React.FC<NewsCardProps> = ({ item, url }) => {
-    if (!item) {
-        redirect('/')
-    }
+
     return (
         <article key={item.id} className='border p-4 rounded-lg flex flex-col md:flex-row gap-4 group'>
-            <Image src={Endpoints.ImageUrl + item?.images} alt={item.image_alt} width={250} height={100} className='h-[150px]' />
+            <Image src={Endpoints.ImageUrl + item?.images} alt={item.image_alt} width={250} height={100} className='aspect-[3/2]' />
             <div>
                 <h3 className='text-2xl line-clamp-1 font-semibold group-hover:underline'>
                     <Link href={url}>

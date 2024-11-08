@@ -1,9 +1,10 @@
 import React from 'react'
 import NewsBlogs from '../_components/NewsBlog'
+import { SearchParams } from '@/types'
 
-const LifeStyle = () => {
+const LifeStyle = ({ searchParams }: { searchParams: SearchParams }) => {
     return (
-        <><NewsBlogs pageTitle='Lifestyle' url='/lifestyle' /></>
+        <><NewsBlogs pageTitle='Lifestyle' url='/lifestyle' page={+(searchParams.page ?? 1)} /></>
     )
 }
 
