@@ -39,7 +39,7 @@ const BusinessMagazine = ({ data }: { data: ApiResponse }) => {
           >
             {data.data.magazine?.data.map((magazine, i) => (
               <SwiperSlide key={i}>
-                <Link className="image" href={`/magazine/${magazine?.url}`}>
+                <Link className="block hover:border-2 border-red-500" href={`/magazine/${magazine?.url}`}>
                   <Image
                     width={600}
                     height={600}

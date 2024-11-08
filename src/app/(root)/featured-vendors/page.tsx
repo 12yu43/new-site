@@ -17,8 +17,7 @@ const FeaturedVendorPage = async () => {
   if (!logos || !logos.data) {
     redirect('/')
   }
-  console.log(logos)
-  console.log(logos.data.data.length)
+ 
   return (
     <section className='bg-white py-6'>
       <div className='container '>

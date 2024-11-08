@@ -31,13 +31,13 @@ const Header = () => {
                 </div>
                 <div className="relative w-full  flex items-center justify-center border-y-4 border-double border-gray-300 mt-2 max-md:hidden">
                     <div
-                        className={(" inset-x-0 max-w-2xl mx-auto z-50 max-lg:tracking-tight")}
+                        className={(" inset-x-0 max-w-2xl font-sans mx-auto z-50 max-lg:tracking-tight")}
                     >
                         <Menu setActive={setActive}>
                             {
                                 navItems.map((item, i) => (
                                     <MenuItem setActive={setActive} active={active} item={item.label} path={item.path ?? ""} key={i}>
-                                        {item.subMenu && item.subMenu.length !== 0 && <div className="flex flex-col space-y-4 text-xs">
+                                        {item.subMenu && item.subMenu.length !== 0 && <div className="flex flex-col space-y-4 ">
                                             {
                                                 item.subMenu.map((subItem, idx) => (
                                                     <HoveredLink href={subItem.path} key={idx}>{subItem.label}</HoveredLink>

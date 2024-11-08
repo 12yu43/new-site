@@ -17,8 +17,8 @@ const HeroSection = async ({ data }: { data: ApiResponse }) => {
                                 .replace(/\s+/g, "-")
                                 .toLowerCase() + "/" + item?.url}
                                 key={item.id}
-                                className='overflow-hidden relative rounded-lg cursor-pointer z-10'>
-                                <Image src={Endpoints.ImageUrl + item.images} alt={item.image_alt} width={800} height={600} className='z-10 hover:scale-105 duration-300 ease-in-out' />
+                                className='overflow-hidden group block relative rounded-lg cursor-pointer z-10'>
+                                <Image src={Endpoints.ImageUrl + item.images} alt={item.image_alt}  width={800} height={600} className='z-10 group-hover:scale-110 duration-300 ease-in-out' />
                                 <p className='text-2xl text-white line-clamp-3 font-bold absolute z-30 bottom-6 left-4 '>
                                     {item.title.substring(0, 100) + "" + (item.title.length > 100 && "...")}
                                 </p>

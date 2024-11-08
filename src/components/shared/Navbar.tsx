@@ -62,7 +62,7 @@ export const Navbar = ({
               {
                 navItems.map((item, i) => (
                   <MenuItem setActive={setActive} active={active} item={item.label} path={item.path ?? ""} key={i}>
-                    {item.subMenu && item.subMenu.length !== 0 && <div className="flex flex-col space-y-4 text-base">
+                    {item.subMenu && item.subMenu.length !== 0 && <div className="flex flex-col space-y-2 text-base">
                       {
                         item.subMenu.map((subItem, idx) => (
                           <HoveredLink href={subItem.path} key={idx}>{subItem.label}</HoveredLink>

@@ -8,6 +8,7 @@ import CombineNewsSection from '../section/CombineNewsSection'
 import { CoverFeature } from '../section/CoverFeature'
 import VideoSection from '../section/VideoSection'
 import BusinessMagazine from '../section/BusinessMagazine'
+import FeaturedCompanies from '../section/FeaturedCompanies'
 
 const Home = async () => {
     const data = await getHomeNews()
@@ -17,13 +18,14 @@ const Home = async () => {
     return (
         <>
             <HeroSection data={data} />
-            <BusinessMagazine data={data}/>
+            <BusinessMagazine data={data} />
             <CoverFeature data={data} />
             <VideoSection />
             <LeaderShipProfileSection data={data} />
             <CombineNewsSection data={data} />
             <StartupInsightsSections data={data} />
             <Testimonials data={data} />
+            <FeaturedCompanies />
         </>
     )
 }
