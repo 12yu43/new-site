@@ -1,15 +1,14 @@
 import { cn } from "@/lib/cn"
 import { ArrowRight } from "lucide-react"
-import Link from "next/link"
-import { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react"
+import { ButtonHTMLAttributes } from "react"
 
-interface ShinyButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> { }
 
 export const ShinyButton = ({
     className,
     children,
     ...props
-}: ShinyButtonProps) => {
+}: ButtonHTMLAttributes<HTMLButtonElement>
+) => {
     return (
         <button
             className={cn(
