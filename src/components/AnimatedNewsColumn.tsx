@@ -32,8 +32,6 @@ const AnimatedNewsColumn = (props: { duration?: number, data: News[], url?: stri
             controls.stop()
         }
     }, [isHovered, controls, props.duration])
-    // console.log(props.data)
-    console.log(props.url)
     return (
         <div
             className={cn('overflow-hidden ', props.className)}

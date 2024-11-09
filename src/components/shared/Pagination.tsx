@@ -8,7 +8,6 @@ const Pagination = ({ link, url }: { link?: PaginationLink[], url: string }) => 
     if (!link || link.length === 0) {
         return null
     }
-    console.log(link)
     return (
         <div className="text-center mb-10 mt-20">
             <div className='flex flex-wrap items-center gap-4 justify-center'>

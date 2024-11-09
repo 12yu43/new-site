@@ -18,7 +18,6 @@ const NewsBlogs = async ({ pageTitle, url, page }: { pageTitle: PageTitle, url: 
     try {
         const res = await fetch(getFullUrl(Endpoints.GetNewNews + '/' + pageTitle + `?page=${page}`))
         news = await res.json()
-        console.log(news)
     } catch (error) {
         console.log(error)
     }
@@ -28,7 +27,6 @@ const NewsBlogs = async ({ pageTitle, url, page }: { pageTitle: PageTitle, url: 
     if (news.data.data.length === 0) {
         return <h1>No news found!</h1>
     }
-    console.log({ url })
     return (
         <div className='container'>
             <h1 className='text-center text-3xl md:text-5xl font-semibold mb-8'>

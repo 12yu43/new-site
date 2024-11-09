@@ -67,6 +67,9 @@
     position: relative;
   }
 
+body {
+  zoom: 1 !important;
+}
 
   @media (max-width: 500px) {
   

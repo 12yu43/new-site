@@ -62,7 +62,6 @@ const CategoryPage = async ({ params }: { params: { category: string, slug: stri
     else {
         data = res.data
     }
-    console.log(res)
     return (
         <>
             <NewsDetail data={data} />

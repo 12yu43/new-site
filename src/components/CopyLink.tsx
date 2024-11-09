@@ -1,6 +1,7 @@
 'use client'
 import { CircleCheckBigIcon, Link } from 'lucide-react';
 import React, { useState } from 'react'
+import toast from 'react-hot-toast';
 
 const CopyLink = () => {
     const [isCopied, setIsCopied] = useState<boolean>(false)
@@ -9,6 +10,7 @@ const CopyLink = () => {
         navigator.clipboard.writeText(url)
             .then(() => {
                 setIsCopied(true)
+                toast.success("link copied")
                 setTimeout(() => {
                     setIsCopied(false)
                 }, 5000);

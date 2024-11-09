@@ -17,7 +17,6 @@ const Listing = async ({ params }: { params: { slug: string } }) => {
     } catch (error) {
         console.log(error)
     }
-    console.log(listings.data.featuredpeople)
 
     return (
         <section>

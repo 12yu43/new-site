@@ -8,7 +8,6 @@ import { Mail } from 'lucide-react';
 
 const SubscribeNewsLetter = () => {
     const inputRef = useRef<HTMLInputElement | null>(null)
-    console.log(getFullUrl(Endpoints.NewsLatter))
     const handleSubscribeNewsLetter = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         if (!inputRef.current || !inputRef.current.value) {
