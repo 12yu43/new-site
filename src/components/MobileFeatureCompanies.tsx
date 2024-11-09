@@ -12,7 +12,7 @@ const MobileFeatureCompanies = ({ logos }: { logos: any }) => {
         <div className="block md:hidden py-20">
 
             <Swiper
-                slidesPerView={3}
+                slidesPerView={2}
                 spaceBetween={10}
                 centeredSlides={true}
 
