@@ -9,7 +9,8 @@ export function middleware(request: NextRequest) {
     .replace(/&/g, "")
     .replace(/\s+/g, "-")
     .replace(/%20/g, "-")
-    .replace(/-+/g, "-");
+    .replace(/-+/g, "-")
+    .toLowerCase();
   // Redirect only if the pathname was modified
   if (url.pathname !== request.nextUrl.pathname) {
     return NextResponse.redirect(url);

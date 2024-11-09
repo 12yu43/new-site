@@ -14,8 +14,8 @@ const StartupInsightsSections = ({ data }: { data: ApiResponse }) => {
                 <HeadingTitle>Startup Insights</HeadingTitle>
                 <main className='flex flex-col md:flex-row gap-4 pt-8 items-start'>
                     <div>
-                        <BentoGrid className=" md:auto-rows-[16rem] md:grid-cols-3 flex-1 overflow-hidden">
-                            {data.data.startup_insight?.slice(0, 9).map((item, i) => (
+                        <BentoGrid className=" md:auto-rows-[16rem] md:grid-cols-4 flex-1 overflow-hidden">
+                            {data.data.startup_insight?.slice(0, 12).map((item, i) => (
                                 <article key={i} className={cn('border-b-2 border-dotted border-black', i >= 4 && "max-md:hidden")}>
                                     <Link href={item?.cat_slug
                                         .replace(/\s+/g, "-")
@@ -33,13 +33,6 @@ const StartupInsightsSections = ({ data }: { data: ApiResponse }) => {
                                 View more
                             </Link>
                         </div>
-                    </div>
-                    <div className='md:w-[400px] bg-gray-50 p-4'>
-                        <h1 className='sub-heading  text-2xl font-semibold'>Crypto News</h1>
-
-                        <ul>
-
-                        </ul>
                     </div>
                 </main>
             </div>

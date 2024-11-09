@@ -1,3 +1,4 @@
+import MobileFeatureCompanies from '@/components/MobileFeatureCompanies'
 import { TestimonialsColumn } from '@/components/TestimonialColumn'
 import HeadingTitle from '@/components/shared/HeadingTitle'
 import { Endpoints } from '@/constants/endpoints'
@@ -6,6 +7,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import React from 'react'
+
 
 const FeaturedCompanies = async () => {
     let logos: any | null = null
@@ -24,7 +26,7 @@ const FeaturedCompanies = async () => {
                 <HeadingTitle>
                     Featured Companies
                 </HeadingTitle>
-                <div className='flex justify-center gap-14  mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[739px] overflow-hidden'>
+                <div className='md:flex justify-center gap-14  mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[739px] overflow-hidden hidden'>
                     <TestimonialsColumn className='hidden md:block' duration={15} directionY='up'>
                         {
                             logos.data.data.slice(0, 5).map((item: any, i: number) => (
@@ -66,6 +68,7 @@ const FeaturedCompanies = async () => {
                         }
                     </TestimonialsColumn>
                 </div>
+                <MobileFeatureCompanies logos={logos} />
             </div>
         </section>
     )

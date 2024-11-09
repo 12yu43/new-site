@@ -46,7 +46,6 @@ const Magazines = async ({ searchParams }: { searchParams: SearchParams }) => {
   if (!magazines || !magazines.data) {
     redirect('/')
   }
-  console.log(magazines)
   return (
     <div className='container mb-8'>
       <h1 className='text-3xl md:text-5xl text-center font-semibold  tracking-wider'>

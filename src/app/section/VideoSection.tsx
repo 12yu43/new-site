@@ -6,7 +6,7 @@ import ytBtnImage from '../../public/assets/images/ytbtn.png'
 import HeadingTitle from '@/components/shared/HeadingTitle';
 import { getVideoId, videos } from '@/constants/videos';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
+import { Pagination, Autoplay } from 'swiper/modules';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -19,9 +19,9 @@ const VideoSection = () => {
             <div className="container">
                 <HeadingTitle>Featured Videos</HeadingTitle>
                 <Swiper
-                    modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
+                    modules={[Pagination, Autoplay]}
                     spaceBetween={50}
-                    slidesPerView={3}
+                    // slidesPerView={3}
                     autoplay={{ delay: 3000 }}
                     className='mt-8 video-swiper'
                     pagination={{ clickable: true }}
@@ -38,17 +38,15 @@ const VideoSection = () => {
                 >
                     {videos.map((videoUrl) => {
                         const videoId = getVideoId(videoUrl);
-                        const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
 
                         return (
                             <SwiperSlide key={videoId}>
-                                <Link href={videoUrl} target="_blank" rel="noopener noreferrer" className="relative">
+                                <Link href={videoUrl} target="_blank" rel="noopener noreferrer" className="block relative w-full max-w-[400px] h-[250px] border-4 border-red-500">
                                     <Image
-                                        src={thumbnailUrl}
+                                        src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
                                         alt="Video Thumbnail"
-                                        width={500}
-                                        height={400}
-                                        className="border-4  max-lg:min-h-[250px]  border-red-500"
+                                        fill
+                                        className="object-cover"
                                     />
                                     <Image
                                         src={ytBtnImage}

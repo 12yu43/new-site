@@ -22,7 +22,7 @@ export const NewsDetail = async ({ data }: { data: NewsDetailType }) => {
     }
     return (
         <div className='container'>
-            <div className='flex gap-6'>
+            <div className='flex flex-col md:flex-row gap-6'>
                 <div className='flex-1 w-full'>
                     <h1 className='text-2xl md:text-3xl font-semibold'>
                         {data.title}
@@ -38,7 +38,7 @@ export const NewsDetail = async ({ data }: { data: NewsDetailType }) => {
                         className='[&>p]:text-gray-800 [&>h3]:text-2xl [&>ul]:text-gray-800 [&>ol]:text-gray-800 [&>h2]:text-2xl [&>p]:pt-4'
                     />
                 </div>
-                <div className='w-[300px] sticky top-20 h-[calc(100vh-100px)]'>
+                <div className='md:w-[300px] md:sticky top-20 md:h-[calc(100vh-100px)]'>
                     <CopyLink />
                     <div className="border-x-2  p-4 mt-2">
                         <h1 className="sub-heading text-2xl font-semibold">Business News</h1>

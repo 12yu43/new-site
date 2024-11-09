@@ -25,9 +25,16 @@ function TestimonialClientCard({ client }: { client: { message: string, client_n
 }
 
 export async function Testimonials({ data }: { data: ApiResponse }) {
-    const res = await fetch('https://executiveheadlines.com/admin/api/home?page=2')
-    const clients = await res.json()
-    const totalClients = [...data.data.client_speak?.data as [], ...clients.data.client_speak.data]
+    "use server"
+    
+    let totalClients: any[] = []
+    try {
+        const res = await fetch('https://executiveheadlines.com/admin/api/home?page=2')
+        const clients = await res.json()
+        totalClients = [...data.data.client_speak?.data as [], ...clients.data.client_speak.data]
+    } catch (error) {
+        console.log(error)
+    }
     return (
         <section className='bg-white py-6'>
             <div className='container '>
