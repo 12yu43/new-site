@@ -9,10 +9,10 @@ import React from 'react'
 
 const Technology = async ({ params, searchParams }: { params: { slug: string }, searchParams: SearchParams }) => {
     const slugMapping: { [key: string]: string } = {
-        "Big-data": "Big data",
-        "Data-analytics": "Data analytics",
-        "Cyber-security": "Cyber security",
-        "IT-services": "IT Services",
+        "big-data": "Big data",
+        "data-analytics": "Data analytics",
+        "cyber-security": "Cyber security",
+        "it-services": "IT Services",
         "media-entertainment": "Media & Entertainment",
         "banking-finance": "Banking & Finance",
         "food-beverage": "Food & Beverage",
@@ -40,7 +40,6 @@ const Technology = async ({ params, searchParams }: { params: { slug: string }, 
     } catch (error) {
         console.log(error)
     }
-    console.log(data)
     return (
         <div className='container'>
             <div className='flex flex-col gap-4'>

@@ -1,8 +1,6 @@
 "use client"
 import React, { useRef } from 'react'
 import { ShinyButton } from './ui/shiny-button';
-import { getFullUrl } from '@/lib/utils';
-import { Endpoints } from '@/constants/endpoints';
 import toast from 'react-hot-toast';
 import { Mail } from 'lucide-react';
 
