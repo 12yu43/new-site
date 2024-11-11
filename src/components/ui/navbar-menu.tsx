@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/cn";
+import { ChevronDown } from "lucide-react";
 
 const transition = {
     type: "spring",
@@ -34,10 +35,10 @@ export const MenuItem = ({
             {
                 !path ? <motion.p
                     transition={{ duration: 0.3 }}
-                    className="cursor-pointer  hover:opacity-[0.9] "
+                    className="cursor-pointer  hover:opacity-[0.9] inline-flex gap-1"
                 >
-                    {item}
-                </motion.p> : <HoveredLink href={path} className={cn("cursor-pointer ", (pathName === path || pathName.includes(path)) && "text-black")}>{item} </HoveredLink>
+                    {item} <ChevronDown className="size-5 pt-1 mt-0.5"/>
+                </motion.p> : <HoveredLink href={path} className={cn("cursor-pointer ", (pathName === path) && "text-black")}>{item} </HoveredLink>
             }
 
             {active !== null && !!children && (

@@ -7,7 +7,7 @@ import { ApiResponse, News, SearchParams } from '@/types';
 import Image from 'next/image';
 import { redirect } from 'next/navigation';
 import React from 'react'
-
+import parse from 'html-react-parser'
 const CoverStory = async ({ params, searchParams }: { params: { slug: string }, searchParams: SearchParams }) => {
   let coverStory: any | null = null
   let page = 1
@@ -29,24 +29,23 @@ const CoverStory = async ({ params, searchParams }: { params: { slug: string }, 
     redirect('/')
   }
   return (
-    <div className='container flex flex-col md:flex-row gap-4'>
-      <div className='max-w-4xl flex-1'>
+    <div className='container  flex flex-col lg:flex-row gap-4'>
+      <div className='flex-1'>
         <h1 className='text-3xl font-semibold md:text-4xl'>{coverStory.data.CoverStory?.title}</h1>
         <h4 className='text-red-500 pt-4 text-xl italic'>{coverStory.data.CoverStory?.issue_title}</h4>
         <div className='py-8'>
           <Image src={Endpoints.ImageUrl + coverStory.data.CoverStory.images} alt={coverStory.data.CoverStory.images_alt} width={600} height={600} />
         </div>
-        <div dangerouslySetInnerHTML={{
-          __html: coverStory.data.CoverStory?.content_details || "",
-        }}
-          className='[&>h3]:text-2xl [&>h3]:mb-4'
+        <div
+          className='[&>h3]:text-2xl [&>h3]:mb-4 [&>h2]:py-4  [&>h2]:text-2xl [&>p>strong]:text-2xl 
+          [&>p>em]:text-xl [&>p>em]:font-semibold [&>p>strong]:py-4 space-y-2'
         >
-
+          {parse(coverStory.data.CoverStory?.content_details || "")}
         </div>
       </div>
-      <div>
+     <div>
         <RelatedStories id={coverStory.id} />
-      </div>
+     </div>
 
     </div>
   )
@@ -72,8 +71,8 @@ const RelatedStories = async ({ id }: { id: number }) => {
       <div className='mt-4 '>
         <AnimatedNewsColumn url={'/cover-story/'} data={stories ?? []} className='lg:h-[570px] p-2 w-full hidden lg:block' />
       </div>
-      <div className='lg:hidden space-y-4'>
-        {stories?.sort(() => Math.random() - 0.5).slice(0, 4).map((item) => <BentoGridItem images={item.images} image_alt={item.image_alt} url={'/cover-story/' + item.url} title={item.title} key={item.id} />)
+      <div className=' mx-auto grid grid-cols-2 sm:grid-cols-2 lg:hidden gap-4 '>
+        {stories?.sort(() => Math.random() - 0.5).slice(0, 6).map((item) => <BentoGridItem images={item.images} image_alt={item.image_alt} url={'/cover-story/' + item.url} title={item.title} key={item.id} className='' />)
         }
       </div>
 

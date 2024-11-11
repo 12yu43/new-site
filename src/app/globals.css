@@ -66,13 +66,14 @@
     height: 42rem;
     position: relative;
   }
-
-body {
-  zoom: 1 !important;
-}
+  .font-tinos {
+    font-family: "Times New Roman", Times, serif;
+  }
+  body {
+    zoom: 1 !important;
+  }
 
   @media (max-width: 500px) {
-  
     .swiper-slide {
       width: 13rem !important;
       /* height: 24rem !important; */
@@ -82,5 +83,4 @@ body {
       /* height: 24rem !important; */
     }
   }
- 
 }

@@ -40,11 +40,11 @@ export const BentoGridItem = ({
     return (
         <Link href={url}
             className={cn(
-                "row-span-1 relative rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-input p-4  bg-white border justify-between flex flex-col space-y-4 overflow-hidden hover:scale-105 cursor-pointer",
+                "row-span-1  relative rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-input p-4  bg-white border justify-between flex flex-col space-y-4 overflow-hidden hover:scale-105 cursor-pointer",
                 className
             )}
         >
-            <div className="h-[185px] overflow-hidden">
+            <div className=" overflow-hidden">
                 <Image src={Endpoints.ImageUrl + images} alt={image_alt} width={500} height={250} className="rounded-sm max-h-[150px]" />
             </div>
             <div className="group-hover/bento:translate-x-2 transition duration-200">

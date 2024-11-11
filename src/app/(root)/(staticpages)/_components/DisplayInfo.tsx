@@ -2,6 +2,7 @@ import { Endpoints } from '@/constants/endpoints';
 import { getFullUrl } from '@/lib/utils';
 import { redirect } from 'next/navigation';
 import React from 'react'
+import parse from 'html-react-parser'
 
 type PageTitle = "Reprints and Permissions" | "about" | "reprint-permission" | "disclaimer" | "contact-us" | "advertise" | "privacy-policy"
 
@@ -34,7 +35,10 @@ const DisplayInfo = async ({ pageTitle }: { pageTitle: PageTitle }) => {
         <div>
             <div className='container'>
                 <h1 className='text-3xl md:text-4xl font-semibold mb-8 text-center'>{type}</h1>
-                <div dangerouslySetInnerHTML={{ __html: data.data?.content_details || "" }} className='border p-8 text-lg tracking-wider bg-white shadow-xl'>
+                <div className='border p-8 text-lg tracking-wider bg-white shadow-xl'>
+                    {
+                        parse(data.data?.content_details)
+                    }
                 </div>
             </div>
         </div>

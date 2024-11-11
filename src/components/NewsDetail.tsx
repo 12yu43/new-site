@@ -4,6 +4,7 @@ import Image from "next/image"
 import CopyLink from "./CopyLink"
 import { redirect } from "next/navigation"
 import { getFullUrl } from "@/lib/utils"
+import parse from 'html-react-parser';
 import Link from "next/link"
 
 export const NewsDetail = async ({ data }: { data: NewsDetailType }) => {
@@ -27,16 +28,19 @@ export const NewsDetail = async ({ data }: { data: NewsDetailType }) => {
                     <h1 className='text-2xl md:text-3xl font-semibold'>
                         {data.title}
                     </h1>
-
+                    {
+                        data.cat_slug.length > 18 && <h2 className='text-red-500 pt-4 text-xl italic'>
+                            {data.cat_slug}
+                        </h2>
+                    }
                     <div className='my-10'>
                         <Image src={Endpoints.ImageUrl + data.images} alt={data.image_alt} width={1000} height={800} className='mx-auto lg:max-w-[700px] max-h-[500px] object-cover' />
                     </div>
-                    <div
-                        dangerouslySetInnerHTML={{
-                            __html: data?.content_details || "",
-                        }}
-                        className='[&>p]:text-gray-800 [&>h3]:text-2xl [&>ul]:text-gray-800 [&>ol]:text-gray-800 [&>h2]:text-2xl [&>p]:pt-4'
-                    />
+                    <div className="">
+                        <div className='[&>p]:text-gray-800 [&>h4]:mt-4 [&>h3]:text-2xl [&>ul]:text-gray-800 [&>ol]:text-gray-800 [&>h2]:text-2xl [&>p]:pt-4 [&>h4]:text-2xl'>
+                            {parse(data?.content_details || "")}
+                        </div>
+                    </div>
                 </div>
                 <div className='md:w-[300px] md:sticky top-20 md:h-[calc(100vh-100px)]'>
                     <CopyLink />
