@@ -50,7 +50,7 @@ export const Navbar = ({
           ease: 'easeIn',
         }}
         className={cn(
-          "flex max-md:hidden fixed top-0 inset-x-0 mx-auto border  shadow-lg  w-full bg-white z-[5000] px-4 py-2   items-center justify-center ",
+          "flex max-lg:hidden fixed top-0 inset-x-0 mx-auto border  shadow-lg  w-full bg-white z-[5000] px-4 py-2   items-center justify-center ",
           className
         )}
       >

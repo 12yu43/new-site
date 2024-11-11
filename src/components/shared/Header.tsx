@@ -19,21 +19,21 @@ const Header = () => {
 
     return (
         <header className='w-full pt-2'>
-            <div className='container max-sm:px-4'>
-                <nav className=' relative flex items-center gap-2' style={{ borderStyle: "double" }}>
-                    <button className='size-8 absolute lg:hidden  top-16  left-0' onClick={() => setOpen((prev) => !prev)}>
+            <div className='container  max-sm:px-4'>
+                <nav className=' relative flex items-center gap-2'>
+                    <button className='size-8 absolute lg:hidden  top-20  left-0' onClick={() => setOpen((prev) => !prev)}>
                         <MenuIcon />
                     </button>
                     <p className='font-tinos hidden lg:block'>{date}</p>
                     <Image src={Logo} width={500} height={500} alt='the executive headlines' className='mx-auto' />
-                    <div className='absolute max-md:top-14 -right-4 md:right-0'>
+                    <div className='absolute top-[4.4rem] md:top-12 lg:top-1 right-4 md:right-0'>
                         <CustomSearchBar />
                     </div>
                 </nav>
                 <div className='mt-10 z-[2000] lg:hidden'>
                     <MobileNav open={open} setOpen={setOpen} />
                 </div>
-                <div className="relative w-full  flex items-center justify-center border-y-4 border-double border-gray-300 mt-2 max-lg:hidden">
+                <div className="relative w-full  flex items-center justify-center border-y-4 border-double border-gray-300 mt-4 max-lg:hidden">
                     <div
                         className={(" inset-x-0 max-w-2xl font-sans mx-auto z-50 max-lg:tracking-tight")}
                     >

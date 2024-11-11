@@ -11,7 +11,7 @@ export default function Layout({
         <div className="">
             <Header />
             <BreadCrumb />
-            <main className="my-14 md:my-10 min-h-[calc(100vh-200px)]">
+            <main className="my-16 md:my-10 min-h-[calc(100vh-200px)]">
                 {children}
             </main>
             <Footer />
