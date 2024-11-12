@@ -49,7 +49,7 @@ const Magazine = async ({ params }: { params: { slug: string } }) => {
       <div className='container mt-8'>
         <HeadingTitle>MEET THE LEADERS</HeadingTitle>
         <BentoGrid className="pt-8">
-          {data.data.featuredpeople?.map((item, i) => (
+          {data.data.featuredpeople?.reverse().map((item, i) => (
             <BentoGridItem
               key={i}
               title={item.title}
