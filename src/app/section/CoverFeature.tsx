@@ -8,7 +8,7 @@ import React from "react";
 export function CoverFeature({ data }: { data: ApiResponse }) {
     return (
         <section className='bg-white py-6'>
-            <div className='container '>
+            <div className='container'>
                 <HeadingTitle>Cover Features</HeadingTitle>
                 <BentoGrid className="pt-8">
                     {data.data.cover_story?.slice(0, 8).map((item, i) => (

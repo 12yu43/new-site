@@ -9,7 +9,7 @@ import React from 'react'
 const HeroSection = async ({ data }: { data: ApiResponse }) => {
     return (
         <section className='bg-white'>
-            <div className='max-md:px-4 md:container'>
+            <div className='container'>
                 <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-9 xl:grid-cols-12 gap-6 py-6 border-y-2'>
                     <div className='col-span-1 md:col-span-2 lg:col-span-6 bg-gray-50'>
                         {data.data.technology?.slice(0, 1).map((item) => (
@@ -43,7 +43,7 @@ const HeroSection = async ({ data }: { data: ApiResponse }) => {
                                                 <p className='text-xs line-clamp-3 hover:text-opacity-5'>
                                                     {item.title}
                                                 </p>
-                                                <Image src={Endpoints.ImageUrl + item.images} alt={item.image_alt} width={100} height={80} className='rounded-lg image-effect' />
+                                                <Image src={Endpoints.ImageUrl + item.images} alt={item.image_alt} width={100} height={80} className='max-w-20 md:max-w-28 rounded-lg image-effect' />
                                             </article>
                                         </Link>
                                     ))}
@@ -60,7 +60,7 @@ const HeroSection = async ({ data }: { data: ApiResponse }) => {
                                                 <p className='text-xs line-clamp-3'>
                                                     {item.title}
                                                 </p>
-                                                <Image src={Endpoints.ImageUrl + item.images} alt={item.image_alt} width={100} height={80} className='rounded-lg image-effect' />
+                                                <Image src={Endpoints.ImageUrl + item.images} alt={item.image_alt} width={100} height={80} className='max-w-20 md:max-w-28 rounded-lg image-effect' />
                                             </article>
                                         </Link>
                                     ))}

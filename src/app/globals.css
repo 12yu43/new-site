@@ -31,7 +31,7 @@
     @apply p-4 shadow-[0_7px_14px_#EAEAEA] border border-[#F1F1F1] rounded-3xl min-w-[320px] max-w-sm  w-full  max-h-[300px] overflow-hidden;
   }
   .image-effect {
-    @apply hover:scale-110 duration-300 ease-in-out rounded-lg object-cover;
+    @apply hover:scale-110 duration-300 ease-in-out rounded-lg object-fill;
   }
   .sub-heading {
     @apply relative text-nowrap before:relative w-1 before:h-full before:rounded-full bg-black before:content-[""] before:pr-4 capitalize;

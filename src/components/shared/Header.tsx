@@ -19,14 +19,16 @@ const Header = () => {
 
     return (
         <header className='w-full pt-2'>
-            <div className='container  max-sm:px-4'>
-                <nav className=' relative flex items-center gap-2'>
+            <div className='container'>
+                <nav className='relative grid grid-cols-1 lg:grid-cols-3 place-items-center'>
                     <button className='size-8 absolute lg:hidden  top-20  left-0' onClick={() => setOpen((prev) => !prev)}>
                         <MenuIcon />
                     </button>
-                    <p className='font-tinos hidden lg:block'>{date}</p>
-                    <Image src={Logo} width={500} height={500} alt='the executive headlines' className='mx-auto' />
-                    <div className='absolute top-[4.4rem] md:top-12 lg:top-1 right-4 md:right-0'>
+                    <p className='font-tinos hidden lg:block w-full'>{date}</p>
+                    <Link href={'/'}>
+                        <Image src={Logo} width={500} height={500} alt='the executive headlines' className='mx-auto' />
+                    </Link>
+                    <div className='max-lg:absolute top-[4.4rem] md:top-14 lg:top-1 right-4 md:right-0 w-full flex justify-end '>
                         <CustomSearchBar />
                     </div>
                 </nav>
@@ -41,7 +43,7 @@ const Header = () => {
                             {
                                 navItems.map((item, i) => (
                                     <MenuItem setActive={setActive} active={active} item={item.label} path={item.path ?? ""} key={i}>
-    
+
                                         {item.subMenu && item.subMenu.length !== 0 && <div className="flex flex-col space-y-4 ">
                                             {
                                                 item.subMenu.map((subItem, idx) => (

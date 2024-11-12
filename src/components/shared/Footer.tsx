@@ -67,7 +67,7 @@ const Footer = async () => {
                                 Latest  Magazines
                             </h1>
                             <div className='grid grid-cols-2  gap-4 place-items-center mt-4'>
-                                {magazines?.data.data.slice(1,3).map((item, i) => (
+                                {magazines?.data.data.slice(0,2).map((item, i) => (
                                     <Link
                                         href={"/magazine/" + item?.url}
                                         key={i}
