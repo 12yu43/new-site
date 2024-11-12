@@ -28,7 +28,7 @@ const RelatedNews = async () => {
                     <div className=' flex items-center justify-between gap-4 flex-wrap pt-10 pr-6'>
                         {
                             logos.data.data.map((logo: any) => (
-                                <Link className='inline-block' href={"/feature/" + logo?.url}>
+                                <Link className='inline-block' href={"/feature/" + logo?.url} key={logo.id}>
                                     <Image src={Endpoints.ImageUrl + logo.featured_company_logo} width={150} height={150} alt='logo' />
                                 </Link>
                             ))
