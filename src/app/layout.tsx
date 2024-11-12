@@ -17,9 +17,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        < link rel="icon" href="/favi.jpg" sizes="any" />
-      </head>
       <body
         className={` ${font.className} font-sans  antialiased`}
       >

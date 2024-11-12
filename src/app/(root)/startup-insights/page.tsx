@@ -1,5 +1,6 @@
 import NewsCard from '@/components/NewsCard'
 import Pagination from '@/components/shared/Pagination'
+import RelatedNews from '@/components/shared/RelatedNews'
 import { Endpoints } from '@/constants/endpoints'
 import { getFullUrl } from '@/lib/utils'
 import { NewsResponseType, SearchParams } from '@/types'
@@ -36,6 +37,7 @@ const StartupInsightsPage = async ({ searchParams }: { searchParams: SearchParam
 
       }
       <Pagination url={'/startup-insights?'} link={startupInsights.data.links} />
+      <RelatedNews />
     </div>
   )
 }

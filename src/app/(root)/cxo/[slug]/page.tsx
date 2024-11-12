@@ -1,4 +1,5 @@
 import { NewsDetail } from '@/components/NewsDetail'
+import RelatedNews from '@/components/shared/RelatedNews'
 import { Endpoints } from '@/constants/endpoints'
 import { getFullUrl } from '@/lib/utils'
 import { NewsDetailType } from '@/types'
@@ -20,6 +21,7 @@ const Cxo = async ({ params }: { params: { slug: string } }) => {
   return (
     <div className='container'>
       <NewsDetail data={Cxos.data} />
+      <RelatedNews />
     </div>
   )
 }

@@ -3,6 +3,7 @@ import { getFullUrl } from '@/lib/utils';
 import { redirect } from 'next/navigation';
 import React from 'react'
 import parse from 'html-react-parser'
+import RelatedNews from '@/components/shared/RelatedNews';
 
 type PageTitle = "Reprints and Permissions" | "about" | "reprint-permission" | "disclaimer" | "contact-us" | "advertise" | "privacy-policy"
 
@@ -40,6 +41,7 @@ const DisplayInfo = async ({ pageTitle }: { pageTitle: PageTitle }) => {
                         parse(data.data?.content_details)
                     }
                 </div>
+                <RelatedNews />
             </div>
         </div>
     )

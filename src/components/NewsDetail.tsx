@@ -6,6 +6,7 @@ import { redirect } from "next/navigation"
 import { getFullUrl } from "@/lib/utils"
 import parse from 'html-react-parser';
 import Link from "next/link"
+import RelatedNews from "./shared/RelatedNews"
 
 export const NewsDetail = async ({ data }: { data: NewsDetailType }) => {
     if (!data) {
@@ -66,6 +67,7 @@ export const NewsDetail = async ({ data }: { data: NewsDetailType }) => {
                     </div>
                 </div>
             </main>
+            <RelatedNews />
         </div>
     )
 }

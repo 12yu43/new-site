@@ -8,6 +8,7 @@ import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import React from 'react'
 import parse from 'html-react-parser'
+import RelatedNews from '@/components/shared/RelatedNews'
 
 const Magazine = async ({ params }: { params: { slug: string } }) => {
   let data: coverStories | null = null
@@ -61,6 +62,7 @@ const Magazine = async ({ params }: { params: { slug: string } }) => {
           ))}
         </BentoGrid>
       </div>
+      <RelatedNews />
     </div>
   )
 }

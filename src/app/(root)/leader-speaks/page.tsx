@@ -1,4 +1,5 @@
 import Pagination from '@/components/shared/Pagination'
+import RelatedNews from '@/components/shared/RelatedNews'
 import { Endpoints } from '@/constants/endpoints'
 import { getFullUrl } from '@/lib/utils'
 import { ClientResponseType, SearchParams } from '@/types'
@@ -54,7 +55,8 @@ const LeaderSpeaksPage = async ({ searchParams }: { searchParams: SearchParams }
         }
 
       </div>
-      <Pagination link={leaderSpeaks.data.links} url='/leader-speaks?'/>
+      <Pagination link={leaderSpeaks.data.links} url='/leader-speaks?' />
+      <RelatedNews />
     </section>
   )
 }

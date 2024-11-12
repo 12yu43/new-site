@@ -1,4 +1,5 @@
 import NewsCard from '@/components/NewsCard';
+import RelatedNews from '@/components/shared/RelatedNews';
 import { Endpoints } from '@/constants/endpoints';
 import { getFullUrl } from '@/lib/utils';
 import React from 'react'
@@ -32,6 +33,7 @@ const Search = async ({ params }: { params: { query: string } }) => {
             {renderPosts(magazineData, 'magazine')}
             {renderPosts(cxoData, 'cxo')}
             {renderPosts(startupData, 'startup-insights')}
+            <RelatedNews />
         </div>
     )
 }

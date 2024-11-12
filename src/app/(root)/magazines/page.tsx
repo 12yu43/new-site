@@ -1,4 +1,5 @@
 import Pagination from '@/components/shared/Pagination';
+import RelatedNews from '@/components/shared/RelatedNews';
 import { BentoGrid, BentoGridItem } from '@/components/ui/bento-grid';
 import { Endpoints } from '@/constants/endpoints';
 import { getFullUrl } from '@/lib/utils';
@@ -65,6 +66,7 @@ const Magazines = async ({ searchParams }: { searchParams: SearchParams }) => {
         ))}
       </BentoGrid>
       <Pagination link={magazines.data.links} url={'/magazines?'} />
+      <RelatedNews />
     </div>
   )
 }

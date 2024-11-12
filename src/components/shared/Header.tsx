@@ -16,12 +16,13 @@ const Header = () => {
     const [active, setActive] = useState<string | null>(null);
     const [open, setOpen] = useState<boolean>(false)
     const date = formatDate(new Date())
-
+    console.log(open)
     return (
         <header className='w-full pt-2'>
             <div className='container'>
                 <nav className='relative grid grid-cols-1 lg:grid-cols-3 place-items-center'>
-                    <button className='size-8 absolute lg:hidden  top-20  left-0' onClick={() => setOpen((prev) => !prev)}>
+                    <button className='size-8 absolute lg:hidden  top-20  left-0 z-20
+                    ' onClick={() => setOpen((prev) => !prev)}>
                         <MenuIcon />
                     </button>
                     <p className='font-tinos hidden lg:block w-full'>{date}</p>

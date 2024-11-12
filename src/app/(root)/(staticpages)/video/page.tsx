@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import ytBtnImage from '../../../../public/assets/images/ytbtn.png';
 import { getVideoId, videos } from '@/constants/videos';
+import RelatedNews from '@/components/shared/RelatedNews';
 
 const VideosPage = () => (
     <div className="container">
@@ -34,6 +35,7 @@ const VideosPage = () => (
                 );
             })}
         </div>
+        <RelatedNews />
     </div>
 );
 

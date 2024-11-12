@@ -1,3 +1,4 @@
+import RelatedNews from '@/components/shared/RelatedNews';
 import { Endpoints } from '@/constants/endpoints';
 import { getFullUrl } from '@/lib/utils';
 import { Link2Icon } from 'lucide-react';
@@ -63,7 +64,7 @@ const Listing = async ({ params }: { params: { slug: string } }) => {
                         ))
                     }
                 </div>
-
+                <RelatedNews />
 
             </div>
 
