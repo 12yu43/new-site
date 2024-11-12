@@ -1,6 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import toast from 'react-hot-toast';
+import { ShinyButton } from '../ui/shiny-button';
 
 const ContactUsForm = () => {
     const [email, setEmail] = useState("");
@@ -78,6 +79,9 @@ const ContactUsForm = () => {
 
                     ></textarea>
                 </div>
+                <ShinyButton type='submit' className='bg-red-500'>
+                    Submit
+                </ShinyButton>
             </form>
         </div>
     )
