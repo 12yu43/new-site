@@ -79,7 +79,7 @@ const ContactUsForm = () => {
 
                     ></textarea>
                 </div>
-                <ShinyButton type='submit' className='bg-red-500'>
+                <ShinyButton type='submit' className='bg-red-500 w-full h-16'>
                     Submit
                 </ShinyButton>
             </form>
