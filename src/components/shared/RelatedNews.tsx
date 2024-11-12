@@ -29,7 +29,7 @@ const RelatedNews = async () => {
                         {
                             logos.data.data.map((logo: any) => (
                                 <Link className='inline-block' href={"/feature/" + logo?.url} key={logo.id}>
-                                    <Image src={Endpoints.ImageUrl + logo.featured_company_logo} width={150} height={150} alt='logo' />
+                                    <Image src={Endpoints.ImageUrl + logo.featured_company_logo} width={150} height={150} alt='logo' className='hover:scale-110 duration-200 ease-in-out' />
                                 </Link>
                             ))
                         }
