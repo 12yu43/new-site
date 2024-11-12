@@ -35,10 +35,10 @@ export const MenuItem = ({
             {
                 !path ? <motion.p
                     transition={{ duration: 0.3 }}
-                    className="cursor-pointer  hover:opacity-[0.9] inline-flex gap-1"
+                    className="cursor-pointer  hover:opacity-[0.8] inline-flex gap-1"
                 >
-                    {item} <ChevronDown className="size-5 pt-1 mt-0.5"/>
-                </motion.p> : <HoveredLink href={path} className={cn("cursor-pointer ", (pathName === path) && "text-black")}>{item} </HoveredLink>
+                    {item} <ChevronDown className="size-5 pt-1 mt-0.5" />
+                </motion.p> : <HoveredLink href={path} className={cn("cursor-pointer ", (pathName === path) && "text-red-500")}>{item} </HoveredLink>
             }
 
             {active !== null && !!children && (
@@ -79,7 +79,7 @@ export const Menu = ({
     return (
         <nav
             onMouseLeave={() => setActive(null)} // resets the state
-            className="relative rounded-full border border-white/[0.2] text-base text-nowrap shadow-input flex justify-center space-x-4 px-6 py-4 text-neutral-700 "
+            className="relative rounded-full border border-white/[0.2] text-base text-nowrap shadow-input flex justify-center space-x-4 px-6 py-4 text-slate-900 font-apple"
         >
             {children}
         </nav>
@@ -121,7 +121,7 @@ export const ProductItem = ({
 export const HoveredLink = ({ children, className, ...rest }: any) => {
     return (
         <Link
-            className={cn("hover:opacity-[0.9] text-base ", className)}
+            className={cn("hover:opacity-[0.8] text-base ", className)}
             {...rest}
         >
             {children}

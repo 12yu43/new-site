@@ -37,7 +37,7 @@ const Header = () => {
                 </div>
                 <div className="relative w-full  flex items-center justify-center border-y-4 border-double border-gray-300 mt-4 max-lg:hidden">
                     <div
-                        className={(" inset-x-0 max-w-2xl font-sans mx-auto z-50 max-lg:tracking-tight")}
+                        className={(" inset-x-0 max-w-2xl font-sans mx-auto z-50 max-lg:tracking-tight ")}
                     >
                         <Menu setActive={setActive}>
                             {

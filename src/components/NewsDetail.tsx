@@ -21,9 +21,11 @@ export const NewsDetail = async ({ data }: { data: NewsDetailType }) => {
     if (!businessNews || !businessNews.data) {
         redirect('/')
     }
+
+
     return (
         <div className='container'>
-            <div className='flex flex-col md:flex-row gap-6'>
+            <main className='flex flex-col md:flex-row gap-6'>
                 <div className='flex-1 w-full'>
                     <h1 className='text-2xl md:text-3xl font-semibold'>
                         {data.title}
@@ -37,14 +39,14 @@ export const NewsDetail = async ({ data }: { data: NewsDetailType }) => {
                         <Image src={Endpoints.ImageUrl + data.images} alt={data.image_alt} width={1000} height={800} className='mx-auto lg:max-w-[700px] max-h-[500px] object-cover' />
                     </div>
                     <div className="">
-                        <div className='[&>p]:text-gray-800 [&>h4]:mt-4 [&>h3]:text-2xl [&>ul]:text-gray-800 [&>ol]:text-gray-800 [&>h2]:text-2xl [&>p]:pt-4 [&>h4]:text-2xl'>
+                        <div className='[&>p]:text-gray-800 [&>h4]:mt-4 [&>h3]:text-xl [&>ul]:text-gray-800 [&>ol]:text-gray-800 [&>h2]:text-xl [&>p]:pt-4 [&>h4]:text-xl space-y-4'>
                             {parse(data?.content_details || "")}
                         </div>
                     </div>
                 </div>
                 <div className='md:w-[300px] md:sticky top-20 md:h-[calc(100vh-100px)]'>
                     <CopyLink />
-                    <div className="border-x-2  p-4 mt-2">
+                    <div className="border-2  p-4 mt-2">
                         <h1 className="sub-heading text-2xl font-semibold">Business News</h1>
 
                         <div className='flex flex-col gap-8 mt-4'>
@@ -54,7 +56,7 @@ export const NewsDetail = async ({ data }: { data: NewsDetailType }) => {
                                         .replace(/\s+/g, "-")
                                         .toLowerCase() + "/" + item?.url}
                                         key={item.id}>
-                                        <p className="font-semibold text-lg border-b-2  border-black hover:underline  line-clamp-2">
+                                        <p className="font-semibold  border-b-2  border-black hover:underline  line-clamp-2">
                                             {item.title}
                                         </p>
                                     </Link>
@@ -63,7 +65,7 @@ export const NewsDetail = async ({ data }: { data: NewsDetailType }) => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </main>
         </div>
     )
 }

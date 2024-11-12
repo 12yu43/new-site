@@ -1,6 +1,6 @@
 export const Endpoints = {
-  baseUrl: "https://executiveheadlines.com/admin/api/",
-  ImageUrl: "https://executiveheadlines.com/admin/media/",
+  baseUrl: process.env.BASE_URL || "",
+  ImageUrl: process.env.NEXT_PUBLIC_BASE_IMAGE_URL || "",
   GetMagazine: "/magazine",
   GetTechnology: "/technology",
   GetIndustries: "/industries",
@@ -23,4 +23,3 @@ export const Endpoints = {
   ContactUs: "/ContactUs",
   GetHome: "/home",
 };
-

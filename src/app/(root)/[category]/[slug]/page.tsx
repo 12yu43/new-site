@@ -1,4 +1,5 @@
 import { NewsDetail } from '@/components/NewsDetail';
+import RelatedNews from '@/components/shared/RelatedNews';
 import { getNewsDetail } from '@/lib/actions/getNews'
 import { redirect } from 'next/navigation';
 import React from 'react'
@@ -62,10 +63,10 @@ const CategoryPage = async ({ params }: { params: { category: string, slug: stri
     else {
         data = res.data
     }
-    console.log(data)
     return (
         <>
             <NewsDetail data={data} />
+            <RelatedNews/>
         </>
     )
 }
