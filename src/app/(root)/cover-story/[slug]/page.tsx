@@ -34,7 +34,7 @@ const CoverStory = async ({ params, searchParams }: { params: { slug: string }, 
     <div className='container'>
       <div className=' flex flex-col lg:flex-row gap-4'>
         <div className='flex-1'>
-          <h1 className='text-3xl font-semibold md:text-4xl'>{coverStory.data.CoverStory?.title}</h1>
+          <h1 className='text-2xl sm:text-3xl font-semibold md:text-4xl'>{coverStory.data.CoverStory?.title}</h1>
           <h4 className='text-red-500 pt-4 text-xl italic'>{coverStory.data.CoverStory?.issue_title}</h4>
           <div className='py-8'>
             <Image src={Endpoints.ImageUrl + coverStory.data.CoverStory.images} alt={coverStory.data.CoverStory.images_alt} width={600} height={600} />
