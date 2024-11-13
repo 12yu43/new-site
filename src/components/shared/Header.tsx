@@ -16,7 +16,6 @@ const Header = () => {
     const [active, setActive] = useState<string | null>(null);
     const [open, setOpen] = useState<boolean>(false)
     const date = formatDate(new Date())
-    console.log(open)
     return (
         <header className='w-full pt-2'>
             <div className='container'>
@@ -93,9 +92,9 @@ const MobileNav = ({ open, setOpen }: { open: boolean, setOpen: (val: boolean) =
                     <li key={i} className="relative">
                         <div
                             className={cn("flex justify-between items-center py-2 px-4 rounded-lg cursor-pointer hover:text-gray-700 transition-colors hover:bg-slate-100 ", expanded === i && "bg-slate-100 text-gray-700")}
-                            onClick={() => item.subMenu ? toggleExpand(i) : setOpen(false)}
+                            onClick={() => item.subMenu && item.subMenu.length !== 0 ? toggleExpand(i) : setOpen(false)}
                         >
-                            <Link href={item.path ?? "#"}>{item.label}</Link>
+                            <Link href={item.path ?? "#"} onClick={() => setOpen(false)}>{item.label}</Link>
                             {item.subMenu && item.subMenu.length !== 0 && (
                                 <ChevronDown
                                     size={18}

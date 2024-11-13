@@ -48,7 +48,7 @@ const ContactUsForm = () => {
     };
     return (
         <div className='contactus shadow-xl py-16 px-4 md:px-10 lg:px-20'>
-            <h1 className='font-semibold text-2xl lg:text-3xl pt-4 drop-shadow-xl shadow-black'>Contact us for our upcoming <span className='text-red-500'>Awards</span></h1>
+            <h1 className='font-semibold text-2xl lg:text-3xl pt-4 '>Contact us for our upcoming <span className='text-red-500'>Awards</span></h1>
             <form className='space-y-4 pt-8 px-6' onSubmit={handleSubmit}>
                 <input
                     className="contactField shadow-lg"
