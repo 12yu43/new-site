@@ -76,7 +76,7 @@ const MobileNav = ({ open, setOpen }: { open: boolean, setOpen: (val: boolean) =
             initial={{ opacity: 0, x: '-100%' }}
             animate={{ opacity: open ? 1 : 0, x: open ? 0 : '-100%' }}
             transition={{ type: "spring", stiffness: 200, damping: 30 }}
-            className="fixed border-2 inset-y-0 left-0 w-full  bg-white z-[4000]  overflow-y-auto"
+            className="fixed border-2 inset-y-0 left-0 w-full  bg-white z-[4000] h-screen  overflow-y-auto"
         >
             <div className='flex items-center justify-between py-4 pr-4'>
                 <Image src={Logo} alt='logo' width={300} height={200} />
