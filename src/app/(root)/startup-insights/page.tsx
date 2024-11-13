@@ -29,7 +29,7 @@ const StartupInsightsPage = async ({ searchParams }: { searchParams: SearchParam
     redirect('/')
   }
   return (
-    <div className='container space-y-4'>
+    <div className='container space-y-4 mb-6'>
       {
         startupInsights.data.data.map((item) => (
           <NewsCard item={item} key={item.id} url={'/startup-insights' + "/" + item.url} />

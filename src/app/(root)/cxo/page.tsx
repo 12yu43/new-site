@@ -1,5 +1,6 @@
 import NewsCard from '@/components/NewsCard'
 import Pagination from '@/components/shared/Pagination'
+import RelatedNews from '@/components/shared/RelatedNews'
 import { Endpoints } from '@/constants/endpoints'
 import { getFullUrl } from '@/lib/utils'
 import { SearchParams } from '@/types'
@@ -35,6 +36,7 @@ const CxoPage = async ({ searchParams }: { searchParams: SearchParams }) => {
         ))
       }
       <Pagination url={'/cxo/?'} link={cxos.data.links} />
+      <RelatedNews />
 
     </div>
   )

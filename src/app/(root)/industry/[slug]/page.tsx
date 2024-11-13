@@ -51,6 +51,7 @@ const IndustryPage = async ({ params, searchParams }: { params: { slug: string }
         }
       </div>
       <Pagination link={data?.data.links} url={`/${"industry"}/${params.slug}?`} />
+      <RelatedNews />
     </div>
   )
 }

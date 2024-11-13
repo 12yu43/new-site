@@ -47,11 +47,11 @@ const ContactUsForm = () => {
         }
     };
     return (
-        <div className='contactus shadow-xl'>
-            <h1 className='font-semibold text-2xl pt-4'>Contact us for our upcoming <span className='text-red-500'>Awards</span></h1>
+        <div className='contactus shadow-xl py-16 px-2 sm:px-10 lg:px-20'>
+            <h1 className='font-semibold text-2xl lg:text-3xl pt-4 drop-shadow-xl shadow-black'>Contact us for our upcoming <span className='text-red-500'>Awards</span></h1>
             <form className='space-y-4 pt-8 px-6' onSubmit={handleSubmit}>
                 <input
-                    className="contactField"
+                    className="contactField shadow-lg"
                     type="email"
                     name="email"
                     onChange={(e) => setEmail(e.target.value)}
@@ -60,7 +60,7 @@ const ContactUsForm = () => {
                     required
                 />
                 <input
-                    className="contactField"
+                    className="contactField shadow-lg"
                     type="text"
                     name="name"
                     onChange={(e) => setName(e.target.value)}
@@ -71,7 +71,7 @@ const ContactUsForm = () => {
                 <div className="mb-4">
                     <textarea
                         onChange={(e) => setMessage(e.target.value)}
-                        className="w-full p-4 outline-none resize-none border border-gray-500 min-h-28
+                        className="w-full p-4 outline-none resize-none border border-gray-500 min-h-28 shadow-lg
   }"
                         placeholder="Your Message"
                         name=""
@@ -79,7 +79,7 @@ const ContactUsForm = () => {
 
                     ></textarea>
                 </div>
-                <ShinyButton type='submit' className='bg-red-500 w-full h-12 text-lg'>
+                <ShinyButton type='submit' className='bg-red-500 w-full h-12 text-lg max-w-md mx-auto'>
                     Submit
                 </ShinyButton>
             </form>
