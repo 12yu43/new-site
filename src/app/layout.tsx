@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 const tinosFont = Tinos({ weight: ['400', '700'], subsets: ['latin'] });
-export const merriweatherFont = Merriweather({ weight: ['400', '700'], subsets: ['latin'] });
+ 
 
 export default function RootLayout({
   children,

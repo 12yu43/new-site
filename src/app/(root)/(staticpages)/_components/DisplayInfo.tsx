@@ -4,10 +4,11 @@ import { redirect } from 'next/navigation';
 import React from 'react'
 import parse from 'html-react-parser'
 import RelatedNews from '@/components/shared/RelatedNews';
-import { merriweatherFont } from '@/app/layout';
+import { Merriweather } from 'next/font/google';
 
 type PageTitle = "Reprints and Permissions" | "about" | "reprint-permission" | "disclaimer" | "contact-us" | "advertise" | "privacy-policy"
 
+const merriweatherFont = Merriweather({ weight: ['400', '700'], subsets: ['latin'] });
 const DisplayInfo = async ({ pageTitle }: { pageTitle: PageTitle }) => {
     let type = "About Us";
     if (pageTitle === "about") {
