@@ -9,6 +9,7 @@ import { Merriweather } from 'next/font/google';
 type PageTitle = "Reprints and Permissions" | "about" | "reprint-permission" | "disclaimer" | "contact-us" | "advertise" | "privacy-policy"
 
 const merriweatherFont = Merriweather({ weight: ['400', '700'], subsets: ['latin'] });
+
 const DisplayInfo = async ({ pageTitle }: { pageTitle: PageTitle }) => {
     let type = "About Us";
     if (pageTitle === "about") {
@@ -39,7 +40,7 @@ const DisplayInfo = async ({ pageTitle }: { pageTitle: PageTitle }) => {
         <div className='container'>
             <h1 className='text-3xl md:text-4xl font-semibold mb-8 text-center'>{type}</h1>
             <div className='border p-8 text-lg tracking-wider bg-white shadow-xl overflow-hidden'>
-                <div className={`${merriweatherFont.className} space-y-2 [&>h3]:text-xl`}>
+                <div className={`${merriweatherFont.className} space-y-2 [&>h3>strong]:text-2xl [&>iframe]:mt-8 [&>iframe]:inline-block`}>
                     {
                         parse(sanitizedResponse)
                     }

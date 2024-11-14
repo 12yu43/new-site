@@ -9,7 +9,7 @@ const LeaderShipProfileSection = ({ data }: { data: ApiResponse }) => {
         <section className='bg-white py-6'>
             <div className='container '>
                 <HeadingTitle>Leadership Profiles</HeadingTitle>
-                <BentoGrid className="pt-8 md:auto-rows-[16rem]">
+                <BentoGrid className="pt-8 md:auto-rows-[16.7rem]">
                     {data.data.featured_people?.data?.slice(0, 8).map((item, i) => (
                         <BentoGridItem
                             key={i}
@@ -17,7 +17,6 @@ const LeaderShipProfileSection = ({ data }: { data: ApiResponse }) => {
                             image_alt={item.image_alt}
                             url={'/feature' + "/" + item?.url}
                             images={item.images}
-                                className=''
                         />
                     ))}
                 </BentoGrid>
