@@ -45,7 +45,7 @@ export const BentoGridItem = ({
             )}
         >
             <div className=" overflow-hidden">
-                <Image src={Endpoints.ImageUrl + images} alt={image_alt} width={500} height={250} className="rounded-sm max-h-[150px] " />
+                <Image src={Endpoints.ImageUrl + images} alt={image_alt} width={500} height={250} className="rounded-sm max-h-[160px] " />
             </div>
             <div className="group-hover/bento:translate-x-2 transition duration-200">
                 <div className=" font-bold text-neutral-600  line-clamp-2">

@@ -91,9 +91,14 @@
     position: relative;
     z-index: 1;
     text-align: center;
-    background-color: #f6f6f6;
+    /* background-color: #f6f6f6; */
     width: 100%;
     margin-top: 50px;
+    /* background-image: url("../public/assets/images/gradient_img.jpeg"); */
+    /* background-color: #dadada; */
+    /* background-repeat: no-repeat; */
+    /* background-position: center; */
+    /* background-size: cover; */
   }
   .contactus::before {
     content: url("../public/assets/images/mail-1.png");
@@ -101,6 +106,7 @@
     position: absolute;
     top: 0;
     z-index: -1;
+    mix-blend-mode:hard-light;
   }
   .contactus::after {
     bottom: -7px;
@@ -108,6 +114,7 @@
     position: absolute;
     right: 0;
     z-index: -1;
+    mix-blend-mode:difference
   }
   .contactField {
     @apply bg-white p-4 outline-none w-full border border-gray-500;

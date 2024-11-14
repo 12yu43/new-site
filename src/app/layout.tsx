@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Tinos } from 'next/font/google'
+import { Tinos, Merriweather } from 'next/font/google';
 import { Toaster } from "react-hot-toast";
-
 
 export const metadata: Metadata = {
   title: "The Executive Headlines - Top business magazine & news headlines sources",
   description: "Top business magazine & news headlines sources",
 };
-const font = Tinos({ weight: ['400', '700'], subsets: ['latin'] })
+
+const tinosFont = Tinos({ weight: ['400', '700'], subsets: ['latin'] });
+export const merriweatherFont = Merriweather({ weight: ['400', '700'], subsets: ['latin'] });
 
 export default function RootLayout({
   children,
@@ -17,9 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={` ${font.className} font-sans  antialiased`}
-      >
+      <body className={`${tinosFont.className} font-sans antialiased`}>
         <Toaster />
         {children}
       </body>

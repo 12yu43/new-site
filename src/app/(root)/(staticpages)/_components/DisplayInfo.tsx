@@ -4,6 +4,7 @@ import { redirect } from 'next/navigation';
 import React from 'react'
 import parse from 'html-react-parser'
 import RelatedNews from '@/components/shared/RelatedNews';
+import { merriweatherFont } from '@/app/layout';
 
 type PageTitle = "Reprints and Permissions" | "about" | "reprint-permission" | "disclaimer" | "contact-us" | "advertise" | "privacy-policy"
 
@@ -32,17 +33,19 @@ const DisplayInfo = async ({ pageTitle }: { pageTitle: PageTitle }) => {
     if (!data) {
         redirect('/')
     }
+    const sanitizedResponse = data.data?.content_details.replace(/font-family:[^;"]*;?/g, '');
     return (
-        <div>
-            <div className='container'>
-                <h1 className='text-3xl md:text-4xl font-semibold mb-8 text-center'>{type}</h1>
-                <div className='border p-8 text-lg tracking-wider bg-white shadow-xl'>
+        <div className='container'>
+            <h1 className='text-3xl md:text-4xl font-semibold mb-8 text-center'>{type}</h1>
+            <div className='border p-8 text-lg tracking-wider bg-white shadow-xl overflow-hidden'>
+                <div className={`${merriweatherFont.className} space-y-2 [&>h3]:text-xl`}>
                     {
-                        parse(data.data?.content_details)
+                        parse(sanitizedResponse)
                     }
                 </div>
-                <RelatedNews />
+
             </div>
+                <RelatedNews />
         </div>
     )
 }

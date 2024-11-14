@@ -34,7 +34,7 @@ const Listing = async ({ params }: { params: { slug: string } }) => {
                 </header>
                 <div className='grid grid-cols-1 md:grid-cols-4 gap-6 py-6'>
                     {
-                        listings.data.featuredpeople.reverse().map((item: any, i: number) => (
+                        listings.data.featuredpeople.map((item: any, i: number) => (
                             <React.Fragment key={i}>
                                 <Link
                                     target={"_blank"}

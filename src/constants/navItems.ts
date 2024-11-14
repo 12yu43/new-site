@@ -46,9 +46,9 @@ export const navItems: MenuItem[] = [
   { label: "Magazines", path: "/magazines", subMenu: [] },
   { label: "Our Clients", path: "/featured-vendors", subMenu: [] },
   { label: "Startup Insights", path: "/startup-insights", subMenu: [] },
-  { label: "CXOs", path: "/cxo", subMenu: [] },
+  { label: "CXOs", path: "/cxos", subMenu: [] },
   { label: "Leaders Speak", path: "/leader-speaks", subMenu: [] },
-  { label: "Videos", path: "/video", subMenu: [] },
+  { label: "Videos", path: "/videos", subMenu: [] },
   {
     label: "News/Blogs",
     subMenu: [

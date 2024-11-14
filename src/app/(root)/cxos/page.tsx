@@ -35,7 +35,7 @@ const CxoPage = async ({ searchParams }: { searchParams: SearchParams }) => {
           <NewsCard item={item} key={item.id} url={`/cxo/${item.url}`} />
         ))
       }
-      <Pagination url={'/cxo/?'} link={cxos.data.links} />
+      <Pagination url={'/cxos/?'} link={cxos.data.links} />
       <RelatedNews />
 
     </div>
