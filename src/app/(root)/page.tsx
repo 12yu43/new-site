@@ -10,7 +10,7 @@ import VideoSection from '../section/VideoSection'
 import BusinessMagazine from '../section/BusinessMagazine'
 import FeaturedCompanies from '../section/FeaturedCompanies'
 
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
 
 const Home = async () => {
     const data = await getHomeNews()
