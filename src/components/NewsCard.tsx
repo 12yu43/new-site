@@ -21,7 +21,9 @@ const NewsCard: React.FC<NewsCardProps> = ({ item, url }) => {
         <article key={item.id} className='border p-4 rounded-lg grid grid-cols-1 gap-2 md:grid-cols-4 group'>
             <div className='col-span-1'>
                 <div className='overflow-hidden rounded-lg w-fit'>
-                    <Image src={Endpoints.ImageUrl + item?.images} alt={item.image_alt} width={250} height={150} className='aspect-[3/2] image-effect' />
+                    <Link href={url}>
+                        <Image src={Endpoints.ImageUrl + item?.images} alt={item.image_alt} width={250} height={150} className='aspect-[3/2] image-effect' />
+                    </Link>
                 </div>
             </div>
             <div className='md:col-span-3'>
