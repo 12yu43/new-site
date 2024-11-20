@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { Testimonials } from '../section/Testimonials'
 import HeroSection from '../section/HeroSection'
 import { getHomeNews } from '@/lib/actions/getHomeNews'
@@ -9,6 +9,7 @@ import { CoverFeature } from '../section/CoverFeature'
 import VideoSection from '../section/VideoSection'
 import BusinessMagazine from '../section/BusinessMagazine'
 import FeaturedCompanies from '../section/FeaturedCompanies'
+import Loading from '../loading'
 
 export const dynamic = "force-dynamic";
 
@@ -18,7 +19,7 @@ const Home = async () => {
         return <>Unable to fetch data</>
     }
     return (
-        <>
+        <Suspense fallback={<Loading />}>
             <HeroSection data={data} />
             <BusinessMagazine data={data} />
             <CoverFeature data={data} />
@@ -28,7 +29,7 @@ const Home = async () => {
             <StartupInsightsSections data={data} />
             <Testimonials data={data} />
             <FeaturedCompanies />
-        </>
+        </Suspense >
     )
 }
 

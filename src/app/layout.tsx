@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Tinos, Merriweather } from 'next/font/google';
 import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
@@ -8,8 +7,6 @@ export const metadata: Metadata = {
   description: "Top business magazine & news headlines sources",
 };
 
-const tinosFont = Tinos({ weight: ['400', '700'], subsets: ['latin'] });
- 
 
 export default function RootLayout({
   children,
@@ -18,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${tinosFont.className} font-sans antialiased`}>
+      <body className={`font-sans antialiased`}>
         <Toaster />
         {children}
       </body>

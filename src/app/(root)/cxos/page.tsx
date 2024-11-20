@@ -1,3 +1,4 @@
+import Loading from '@/app/loading'
 import NewsCard from '@/components/NewsCard'
 import Pagination from '@/components/shared/Pagination'
 import RelatedNews from '@/components/shared/RelatedNews'
@@ -5,7 +6,7 @@ import { Endpoints } from '@/constants/endpoints'
 import { getFullUrl } from '@/lib/utils'
 import { SearchParams } from '@/types'
 import { redirect } from 'next/navigation'
-import React from 'react'
+import React, { Suspense } from 'react'
 
 const CxoPage = async ({ searchParams }: { searchParams: SearchParams }) => {
   let cxos = null
@@ -29,16 +30,17 @@ const CxoPage = async ({ searchParams }: { searchParams: SearchParams }) => {
     console.log(error)
   }
   return (
-    <div className='container space-y-4'>
-      {
-        cxos.data.data?.map((item: any) => (
-          <NewsCard item={item} key={item.id} url={`/cxo/${item.url}`} />
-        ))
-      }
-      <Pagination url={'/cxos/?'} link={cxos.data.links} />
-      <RelatedNews />
-
-    </div>
+    <Suspense fallback={<Loading />}>
+      <div className='container space-y-4'>
+        {
+          cxos.data.data?.map((item: any) => (
+            <NewsCard item={item} key={item.id} url={`/cxo/${item.url}`} />
+          ))
+        }
+        <Pagination url={'/cxos/?'} link={cxos.data.links} />
+        <RelatedNews />
+      </div>
+    </Suspense>
   )
 }
 

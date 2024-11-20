@@ -1,10 +1,11 @@
+import Loading from '@/app/loading';
 import NewsCard from '@/components/NewsCard';
 import Pagination from '@/components/shared/Pagination';
 import { Endpoints } from '@/constants/endpoints';
 import { getFullUrl } from '@/lib/utils';
 import { NewsResponseType } from '@/types';
 import { redirect } from 'next/navigation';
-import React from 'react'
+import React, { Suspense } from 'react'
 
 type PageTitle = "Sports" | "Lifestyle" | "Entrepreneurs" | "Entertainment & Media" | "Awards & Events"
 
@@ -28,17 +29,19 @@ const NewsBlogs = async ({ pageTitle, url, page }: { pageTitle: PageTitle, url: 
         return <h1>No news found!</h1>
     }
     return (
-        <div className='container'>
-            <h1 className='text-center text-3xl md:text-5xl font-semibold mb-8'>
-                {pageTitle}
-            </h1>
-            <div className='space-y-4'>
-                {news.data.data.map((item) =>
-                (<NewsCard item={item} key={item.id} url={url + '/' + item.url} />
-                ))}
+        <Suspense fallback={<Loading />}>
+            <div className='container'>
+                <h1 className='text-center text-3xl md:text-5xl font-semibold mb-8'>
+                    {pageTitle}
+                </h1>
+                <div className='space-y-4'>
+                    {news.data.data.map((item) =>
+                    (<NewsCard item={item} key={item.id} url={url + '/' + item.url} />
+                    ))}
+                </div>
+                <Pagination link={news.data.links} url={`${url}?`} />
             </div>
-            <Pagination link={news.data.links} url={`${url}?`} />
-        </div>
+        </Suspense>
     )
 }
 

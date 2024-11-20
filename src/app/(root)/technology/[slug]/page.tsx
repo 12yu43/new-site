@@ -1,3 +1,4 @@
+import Loading from '@/app/loading';
 import NewsCard from '@/components/NewsCard';
 import Pagination from '@/components/shared/Pagination';
 import RelatedNews from '@/components/shared/RelatedNews';
@@ -5,7 +6,7 @@ import { Endpoints } from '@/constants/endpoints';
 import { getFullUrl } from '@/lib/utils';
 import { NewsResponseType, SearchParams } from '@/types';
 import { redirect } from 'next/navigation';
-import React from 'react'
+import React, { Suspense } from 'react'
 
 
 const Technology = async ({ params, searchParams }: { params: { slug: string }, searchParams: SearchParams }) => {
@@ -42,17 +43,19 @@ const Technology = async ({ params, searchParams }: { params: { slug: string }, 
         console.log(error)
     }
     return (
-        <div className='container'>
-            <div className='flex flex-col gap-4'>
-                {
-                    data?.data.data.map((item) => (
-                        <NewsCard item={item} key={item.id} url={`/${item.cat_slug.replace(/\s+/g, "-").toLowerCase()}/${item?.url}`} />
-                    ))
-                }
+        <Suspense fallback={<Loading />}>
+            <div className='container'>
+                <div className='flex flex-col gap-4'>
+                    {
+                        data?.data.data.map((item) => (
+                            <NewsCard item={item} key={item.id} url={`/${item.cat_slug.replace(/\s+/g, "-").toLowerCase()}/${item?.url}`} />
+                        ))
+                    }
+                </div>
+                <Pagination link={data?.data.links} url={`/${"technology"}/${slug}?`} />
+                <RelatedNews />
             </div>
-            <Pagination link={data?.data.links} url={`/${"technology"}/${slug}?`} />
-            <RelatedNews />
-        </div>
+        </Suspense>
     )
 }
 

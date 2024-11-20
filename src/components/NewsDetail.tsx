@@ -7,6 +7,8 @@ import { getFullUrl } from "@/lib/utils"
 import parse from 'html-react-parser';
 import Link from "next/link"
 import RelatedNews from "./shared/RelatedNews"
+import { Suspense } from "react"
+import Loading from "@/app/loading"
 
 export const NewsDetail = async ({ data }: { data: NewsDetailType }) => {
     if (!data) {
@@ -67,7 +69,9 @@ export const NewsDetail = async ({ data }: { data: NewsDetailType }) => {
                     </div>
                 </div>
             </main>
-            <RelatedNews />
+            <Suspense fallback={<Loading />}>
+                <RelatedNews />
+            </Suspense>
         </div>
     )
 }

@@ -1,8 +1,9 @@
+import Loading from '@/app/loading';
 import NewsCard from '@/components/NewsCard';
 import RelatedNews from '@/components/shared/RelatedNews';
 import { Endpoints } from '@/constants/endpoints';
 import { getFullUrl } from '@/lib/utils';
-import React from 'react'
+import React, { Suspense } from 'react'
 
 const Search = async ({ params }: { params: { query: string } }) => {
     let technologyData;
@@ -39,13 +40,15 @@ const Search = async ({ params }: { params: { query: string } }) => {
 }
 const renderPosts = (data: any, category: string) => {
     return (
-        <div className='space-y-4'>
-            {
-                data?.map((item: any, i: number) => (
-                    <NewsCard item={item} url={`/${category}/` + item.url} key={i} />
-                ))
-            }
-        </div>
+        <Suspense fallback={<Loading />}>
+            <div className='space-y-4'>
+                {
+                    data?.map((item: any, i: number) => (
+                        <NewsCard item={item} url={`/${category}/` + item.url} key={i} />
+                    ))
+                }
+            </div>
+        </Suspense>
     )
 }
 

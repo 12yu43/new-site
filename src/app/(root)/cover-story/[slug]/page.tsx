@@ -6,10 +6,11 @@ import { getNewsDetail } from '@/lib/actions/getNews';
 import { ApiResponse, News, SearchParams } from '@/types';
 import Image from 'next/image';
 import { redirect } from 'next/navigation';
-import React from 'react'
+import React, { Suspense } from 'react'
 import parse from 'html-react-parser'
 import RelatedNews from '@/components/shared/RelatedNews';
 import { div } from 'framer-motion/client';
+import Loading from '@/app/loading';
 const CoverStory = async ({ params, searchParams }: { params: { slug: string }, searchParams: SearchParams }) => {
   let coverStory: any | null = null
   let page = 1
@@ -71,17 +72,19 @@ const RelatedStories = async ({ id }: { id: number }) => {
 
   }
   return (
-    <div className='lg:w-[400px] lg:border-x-2  px-4  lg:block lg:sticky top-20 right-0'>
-      <h2 className='sub-heading text-lg font-semibold'>Related Stories</h2>
-      <div className='mt-4 '>
-        <AnimatedNewsColumn url={'/cover-story/'} data={stories ?? []} className='lg:h-[570px] p-2 w-full hidden lg:block' />
-      </div>
-      <div className=' mx-auto grid grid-cols-2 sm:grid-cols-2 lg:hidden gap-4 '>
-        {stories?.sort(() => Math.random() - 0.5).slice(0, 6).map((item) => <BentoGridItem images={item.images} image_alt={item.image_alt} url={'/cover-story/' + item.url} title={item.title} key={item.id} className='' />)
-        }
-      </div>
+    <Suspense fallback={<Loading />}>
+      <div className='lg:w-[400px] lg:border-x-2  px-4  lg:block lg:sticky top-20 right-0'>
+        <h2 className='sub-heading text-lg font-semibold'>Related Stories</h2>
+        <div className='mt-4 '>
+          <AnimatedNewsColumn url={'/cover-story/'} data={stories ?? []} className='lg:h-[570px] p-2 w-full hidden lg:block' />
+        </div>
+        <div className=' mx-auto grid grid-cols-2 sm:grid-cols-2 lg:hidden gap-4 '>
+          {stories?.sort(() => Math.random() - 0.5).slice(0, 6).map((item) => <BentoGridItem images={item.images} image_alt={item.image_alt} url={'/cover-story/' + item.url} title={item.title} key={item.id} className='' />)
+          }
+        </div>
 
-    </div>
+      </div>
+    </Suspense>
   )
 }
 

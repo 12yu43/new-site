@@ -1,3 +1,4 @@
+import Loading from '@/app/loading'
 import Pagination from '@/components/shared/Pagination'
 import RelatedNews from '@/components/shared/RelatedNews'
 import { BentoGrid } from '@/components/ui/bento-grid'
@@ -7,7 +8,7 @@ import { SearchParams } from '@/types'
 import Image from 'next/image'
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
-import React from 'react'
+import React, { Suspense } from 'react'
 
 const FeaturedVendorPage = async ({ searchParams }: { searchParams: SearchParams }) => {
   let logos: any | null = null
@@ -31,21 +32,23 @@ const FeaturedVendorPage = async ({ searchParams }: { searchParams: SearchParams
     redirect('/')
   }
   return (
-    <section className='bg-white py-6'>
-      <div className='container '>
-        <BentoGrid className='grid md:auto-rows-[8rem]  grid-cols-1 md:grid-cols-4 justify-items-center'>
-          {
-            logos.data.data.map((item: any) => (
-              <Link key={item.id} className='shadow-xl p-6  self-center hover:scale-110 ease-in-out duration-200' href={'/feature/' + item.url}>
-                <Image src={Endpoints.ImageUrl + item.featured_company_logo} alt={item.featured_company_logo} width={150} height={150} className='aspect-[20/8] ' />
-              </Link>
-            ))
-          }
-        </BentoGrid>
-        <Pagination link={logos.data.links} url={'/featured-vendors?'} />
-        <RelatedNews />
-      </div>
-    </section>
+    <Suspense fallback={<Loading />}>
+      <section className='bg-white py-6'>
+        <div className='container '>
+          <BentoGrid className='grid md:auto-rows-[8rem]  grid-cols-1 md:grid-cols-4 justify-items-center'>
+            {
+              logos.data.data.map((item: any) => (
+                <Link key={item.id} className='shadow-xl p-6  self-center hover:scale-110 ease-in-out duration-200' href={'/feature/' + item.url}>
+                  <Image src={Endpoints.ImageUrl + item.featured_company_logo} alt={item.featured_company_logo} width={150} height={150} className='aspect-[20/8] ' />
+                </Link>
+              ))
+            }
+          </BentoGrid>
+          <Pagination link={logos.data.links} url={'/featured-vendors?'} />
+          <RelatedNews />
+        </div>
+      </section>
+    </Suspense>
   )
 }
 

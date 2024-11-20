@@ -1,10 +1,11 @@
 import { Endpoints } from '@/constants/endpoints';
 import { getFullUrl } from '@/lib/utils';
 import { redirect } from 'next/navigation';
-import React from 'react'
+import React, { Suspense } from 'react'
 import parse from 'html-react-parser'
 import RelatedNews from '@/components/shared/RelatedNews';
 import { Merriweather } from 'next/font/google';
+import Loading from '@/app/loading';
 
 type PageTitle = "Reprints and Permissions" | "about" | "reprint-permission" | "disclaimer" | "contact-us" | "advertise" | "privacy-policy"
 
@@ -37,18 +38,20 @@ const DisplayInfo = async ({ pageTitle }: { pageTitle: PageTitle }) => {
     }
     const sanitizedResponse = data.data?.content_details.replace(/font-family:[^;"]*;?/g, '');
     return (
-        <div className='container'>
-            <h1 className='text-3xl md:text-4xl font-semibold mb-8 text-center'>{type}</h1>
-            <div className='border p-8 text-lg tracking-wider bg-white shadow-xl overflow-hidden'>
-                <div className={`${merriweatherFont.className} space-y-2 [&>h3>strong]:text-2xl [&>iframe]:mt-8 [&>iframe]:inline-block`}>
-                    {
-                        parse(sanitizedResponse)
-                    }
-                </div>
+        <Suspense fallback={<Loading />}>
+            <div className='container'>
+                <h1 className='text-3xl md:text-4xl font-semibold mb-8 text-center'>{type}</h1>
+                <div className='border p-8 text-lg tracking-wider bg-white shadow-xl overflow-hidden'>
+                    <div className={`${merriweatherFont.className} space-y-2 [&>h3>strong]:text-2xl [&>iframe]:mt-8 [&>iframe]:inline-block`}>
+                        {
+                            parse(sanitizedResponse)
+                        }
+                    </div>
 
-            </div>
+                </div>
                 <RelatedNews />
-        </div>
+            </div>
+        </Suspense>
     )
 }
 

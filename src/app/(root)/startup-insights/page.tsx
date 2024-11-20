@@ -1,3 +1,4 @@
+import Loading from '@/app/loading'
 import NewsCard from '@/components/NewsCard'
 import Pagination from '@/components/shared/Pagination'
 import RelatedNews from '@/components/shared/RelatedNews'
@@ -5,7 +6,7 @@ import { Endpoints } from '@/constants/endpoints'
 import { getFullUrl } from '@/lib/utils'
 import { NewsResponseType, SearchParams } from '@/types'
 import { redirect } from 'next/navigation'
-import React from 'react'
+import React, { Suspense } from 'react'
 
 const StartupInsightsPage = async ({ searchParams }: { searchParams: SearchParams }) => {
   let startupInsights: NewsResponseType | null = null
@@ -29,16 +30,18 @@ const StartupInsightsPage = async ({ searchParams }: { searchParams: SearchParam
     redirect('/')
   }
   return (
-    <div className='container space-y-4 mb-6'>
-      {
-        startupInsights.data.data.map((item) => (
-          <NewsCard item={item} key={item.id} url={'/startup-insights' + "/" + item.url} />
-        ))
+    <Suspense fallback={<Loading /> }>
+      <div className='container space-y-4 mb-6'>
+        {
+          startupInsights.data.data.map((item) => (
+            <NewsCard item={item} key={item.id} url={'/startup-insights' + "/" + item.url} />
+          ))
 
-      }
-      <Pagination url={'/startup-insights?'} link={startupInsights.data.links} />
-      <RelatedNews />
-    </div>
+        }
+        <Pagination url={'/startup-insights?'} link={startupInsights.data.links} />
+        <RelatedNews />
+      </div>
+    </Suspense>
   )
 }
 
