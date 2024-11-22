@@ -19,7 +19,8 @@ const Home = async () => {
         return <>Unable to fetch data</>
     }
     return (
-        <Suspense fallback={<Loading />}>
+        // <Suspense fallback={<Loading />}>
+        <>
             <HeroSection data={data} />
             <BusinessMagazine data={data} />
             <CoverFeature data={data} />
@@ -28,8 +29,8 @@ const Home = async () => {
             <CombineNewsSection data={data} />
             <StartupInsightsSections data={data} />
             <Testimonials data={data} />
-            <FeaturedCompanies />
-        </Suspense >
+            <FeaturedCompanies /></>
+        // </Suspense >
     )
 }
 

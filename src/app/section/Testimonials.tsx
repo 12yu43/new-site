@@ -26,10 +26,10 @@ function TestimonialClientCard({ client }: { client: { message: string, client_n
 
 export async function Testimonials({ data }: { data: ApiResponse }) {
     "use server"
-    
+
     let totalClients: any[] = []
     try {
-        const res = await fetch('https://executiveheadlines.com/admin/api/home?page=2')
+        const res = await fetch(`${process.env.BASE_URL}/home?page=2`)
         const clients = await res.json()
         totalClients = [...data.data.client_speak?.data as [], ...clients.data.client_speak.data]
     } catch (error) {

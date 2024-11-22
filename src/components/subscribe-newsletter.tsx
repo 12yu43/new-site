@@ -13,7 +13,7 @@ const SubscribeNewsLetter = () => {
         }
         try {
             const res = await fetch(
-                "https://executiveheadlines.com/admin/api/news-letter",
+                `https://headlines.executiveheadlines.com/admin/api/news-letter`,
                 {
                     method: "POST",
                     body: JSON.stringify({ email: inputRef.current.value }),
