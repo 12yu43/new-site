@@ -9,7 +9,6 @@ import { redirect } from 'next/navigation';
 import React, { Suspense } from 'react'
 import parse from 'html-react-parser'
 import RelatedNews from '@/components/shared/RelatedNews';
-import { div } from 'framer-motion/client';
 import Loading from '@/app/loading';
 const CoverStory = async ({ params, searchParams }: { params: { slug: string }, searchParams: SearchParams }) => {
   let coverStory: any | null = null
@@ -35,14 +34,14 @@ const CoverStory = async ({ params, searchParams }: { params: { slug: string }, 
     <div className='container'>
       <div className=' flex flex-col lg:flex-row gap-4'>
         <div className='flex-1'>
-          <h1 className='text-2xl sm:text-3xl font-semibold md:text-4xl'>{coverStory.data.CoverStory?.title}</h1>
+          <h1 className='font-semibold text-2xl'>{coverStory.data.CoverStory?.title}</h1>
           <h4 className='text-red-500 pt-4 text-xl italic'>{coverStory.data.CoverStory?.issue_title}</h4>
           <div className='py-8'>
-            <Image src={Endpoints.ImageUrl + coverStory.data.CoverStory.images} alt={coverStory.data.CoverStory.images_alt} width={600} height={600} />
+            <Image src={Endpoints.ImageUrl + coverStory.data.CoverStory.images} alt={coverStory.data.CoverStory.images_alt} width={600} height={600} className='mx-auto' />
           </div>
           <div
-            className='[&>h3]:text-2xl [&>h3]:mb-4 [&>h2]:py-4  [&>h2]:text-2xl [&>p>strong]:text-2xl 
-          [&>p>em]:text-xl [&>p>em]:font-semibold [&>p>strong]:py-4 space-y-2'
+            className='[&>h3]:text-xl [&>h2]:py-1  [&>h2]:text-xl [&>p>strong]:text-xl 
+          [&>p>em]:text-xl  [&>p>strong]:py-2 space-y-2 !font-sans'
           >
             {parse(coverStory.data.CoverStory?.content_details || "")}
           </div>
@@ -79,7 +78,7 @@ const RelatedStories = async ({ id }: { id: number }) => {
           <AnimatedNewsColumn url={'/cover-story/'} data={stories ?? []} className='lg:h-[570px] p-2 w-full hidden lg:block' />
         </div>
         <div className=' mx-auto grid grid-cols-2 sm:grid-cols-2 lg:hidden gap-4 '>
-          {stories?.sort(() => Math.random() - 0.5).slice(0, 6).map((item) => <BentoGridItem images={item.images} image_alt={item.image_alt} url={'/cover-story/' + item.url} title={item.title} key={item.id} className='' />)
+          {stories?.map((item) => <BentoGridItem images={item.images} image_alt={item.image_alt} url={'/cover-story/' + item.url} title={item.title} key={item.id} className='' />)
           }
         </div>
 

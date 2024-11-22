@@ -48,8 +48,9 @@ const CategoryPage = async ({ params }: { params: { category: string, slug: stri
         default:
             type = "technology";
     }
-
+    
     const res = await getNewsDetail(type, params.slug)
+    // console.log(res.data)
     if (!res || !res.data) {
         redirect('/')
         // return null

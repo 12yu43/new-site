@@ -24,8 +24,10 @@ export const NewsDetail = async ({ data }: { data: NewsDetailType }) => {
     if (!businessNews || !businessNews.data) {
         redirect('/')
     }
-
-
+    const sanitizeContent = (data: string) => {
+        return data.replace(/ style="[^"]*"/g, "")
+    }
+    const sanitizedContent = sanitizeContent(data?.content_details || "");
     return (
         <div className='container'>
             <main className='flex flex-col md:flex-row gap-6'>
@@ -42,8 +44,8 @@ export const NewsDetail = async ({ data }: { data: NewsDetailType }) => {
                         <Image src={Endpoints.ImageUrl + data.images} alt={data.image_alt} width={1000} height={800} className='mx-auto lg:max-w-[700px] max-h-[500px] object-cover' />
                     </div>
                     <div className="">
-                        <div className='[&>p]:text-gray-800 [&>h4]:mt-4 [&>h3]:text-xl [&>ul]:text-gray-800 [&>ol]:text-gray-800 [&>h2]:text-xl [&>p]:pt-4 [&>h4]:text-xl space-y-4'>
-                            {parse(data?.content_details || "")}
+                        <div className='[&>p]:text-gray-800 [&>h3]:text-xl [&>ul]:text-gray-800 [&>ol]:text-gray-800 [&>h2]:text-xl [&>p>strong]:text-xl  space-y-2'>
+                            {parse(sanitizedContent)}
                         </div>
                     </div>
                 </div>

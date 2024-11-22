@@ -9,7 +9,7 @@ const LeaderShipProfileSection = ({ data }: { data: ApiResponse }) => {
         <section className='bg-white py-6'>
             <div className='container '>
                 <HeadingTitle>Leadership Profiles</HeadingTitle>
-                <BentoGrid className="pt-8  lg:auto-rows-[16.7rem]">
+                <BentoGrid className="pt-8  lg:auto-rows-[17rem]">
                     {data.data.featured_people?.data?.slice(0, 8).map((item, i) => (
                         <BentoGridItem
                             key={i}

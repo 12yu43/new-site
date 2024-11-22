@@ -10,7 +10,7 @@ export function CoverFeature({ data }: { data: ApiResponse }) {
         <section className='bg-white py-6'>
             <div className='container'>
                 <HeadingTitle>Cover Features</HeadingTitle>
-                <BentoGrid className="pt-8">
+                <BentoGrid className="pt-8 md:auto-rows-[17rem]">
                     {data.data.cover_story?.slice(0, 8).map((item, i) => (
                         <BentoGridItem
                             key={i}

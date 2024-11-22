@@ -22,7 +22,7 @@ const Pagination = ({ link, url }: { link?: PaginationLink[], url: string }) => 
                     return (
                         <Link
                             key={index}
-                            href={page ? (url).replace(/\s+/g, "-") + page : "#"}
+                            href={page ? (url).replace(/\s+/g, "-").toLowerCase() + page : "#"}
                         >
                             <span className={cn("min-w-[40px] min-h-[40px] p-2 block rounded-full bg-neutral-100  ", isActive && "bg-neutral-400 ")} >
                                 {labelIcon}
