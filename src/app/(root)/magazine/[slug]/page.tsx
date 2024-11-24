@@ -25,7 +25,9 @@ const Magazine = async ({ params }: { params: { slug: string } }) => {
   return (
     <Suspense fallback={<Loading />}>
       <div>
-        <Link href={`/listing/${data.data.magazine.url}`}>
+        <Link href={`/listing/${data.data.magazine.url.replace(/&/g, '')
+          .replace(/\s+/g, "-")
+          .toLowerCase()}`}>
           <Image src={Endpoints.ImageUrl + data.data.magazine.issue_logo} alt='magazines' width={400} height={300} className='mx-auto mb-4'
             title='Know more' />
         </Link>
@@ -35,7 +37,9 @@ const Magazine = async ({ params }: { params: { slug: string } }) => {
 
           <div className='bgPattern px-4 sm:px-8 py-10 border-2 '>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-10 p-4 sm:p-8 justify-items-center'>
-              <Link href={`/cover-story/${data.data.coverstory.url}`}>
+              <Link href={`/cover-story/${data.data.coverstory ? data.data.coverstory.url.replace(/&/g, '')
+                .replace(/\s+/g, "-")
+                .toLowerCase() : "#"}`}>
                 <Image src={Endpoints.ImageUrl + data.data.magazine.magazine_cover_image} alt='Cover story' width={400} height={400} className='border-2 border-red-500' /></Link>
               <div>
                 <div className="p-2"
@@ -44,7 +48,9 @@ const Magazine = async ({ params }: { params: { slug: string } }) => {
                     parse(data.data.coverstory?.content_details.substring(0, 1300) + "..." || "")
                   }
                 </div>
-                <Link className='text-red-500 text-center mt-4 inline-block bg-black p-3 font-semibold' href={`/cover-story/${data.data.coverstory.url}`}>Read More {">>"}</Link>
+                <Link className='text-red-500 text-center mt-4 inline-block bg-black p-3 font-semibold' href={`/cover-story/${data.data.coverstory.url.replace(/&/g, '')
+                  .replace(/\s+/g, "-")
+                  .toLowerCase()}`}>Read More {">>"}</Link>
               </div>
             </div>
           </div>
@@ -57,7 +63,9 @@ const Magazine = async ({ params }: { params: { slug: string } }) => {
                 key={i}
                 title={item.title}
                 image_alt={item.image_alt}
-                url={'/feature' + "/" + item?.url}
+                url={'/feature' + "/" + item?.url.replace(/&/g, '')
+                  .replace(/\s+/g, "-")
+                  .toLowerCase()}
                 images={item.images}
 
               />

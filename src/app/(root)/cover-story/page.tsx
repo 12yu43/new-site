@@ -23,7 +23,9 @@ const CoverStoryPage = async () => {
             <div className='container space-y-4'>
                 {
                     coverStory?.map((item) => (
-                        <NewsCard item={item} key={item.id} url={'/cover-story' + "/" + item.url} />
+                        <NewsCard item={item} key={item.id} url={'/cover-story' + "/" + item.url.replace(/&/g, '')
+                            .replace(/\s+/g, "-")
+                            .toLowerCase()} />
                     ))
 
                 }

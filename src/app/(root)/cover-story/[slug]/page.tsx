@@ -78,7 +78,9 @@ const RelatedStories = async ({ id }: { id: number }) => {
           <AnimatedNewsColumn url={'/cover-story/'} data={stories ?? []} className='lg:h-[570px] p-2 w-full hidden lg:block' />
         </div>
         <div className=' mx-auto grid grid-cols-2 sm:grid-cols-2 lg:hidden gap-4 '>
-          {stories?.map((item) => <BentoGridItem images={item.images} image_alt={item.image_alt} url={'/cover-story/' + item.url} title={item.title} key={item.id} className='' />)
+          {stories?.map((item) => <BentoGridItem images={item.images} image_alt={item.image_alt} url={'/cover-story/' + item.url.replace(/&/g, '')
+            .replace(/\s+/g, "-")
+            .toLowerCase()} title={item.title} key={item.id} className='' />)
           }
         </div>
 

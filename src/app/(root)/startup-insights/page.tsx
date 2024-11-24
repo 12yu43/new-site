@@ -30,11 +30,13 @@ const StartupInsightsPage = async ({ searchParams }: { searchParams: SearchParam
     redirect('/')
   }
   return (
-    <Suspense fallback={<Loading /> }>
+    <Suspense fallback={<Loading />}>
       <div className='container space-y-4 mb-6'>
         {
           startupInsights.data.data.map((item) => (
-            <NewsCard item={item} key={item.id} url={'/startup-insights' + "/" + item.url} />
+            <NewsCard item={item} key={item.id} url={'/startup-insights' + "/" + item.url.replace(/&/g, '')
+              .replace(/\s+/g, "-")
+              .toLowerCase()} />
           ))
 
         }

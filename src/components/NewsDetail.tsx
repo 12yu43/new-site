@@ -57,9 +57,8 @@ export const NewsDetail = async ({ data }: { data: NewsDetailType }) => {
                         <div className='flex flex-col gap-8 mt-4'>
                             {
                                 businessNews.data.data.map((item) => (
-                                    <Link href={'/' + item?.cat_slug
-                                        .replace(/\s+/g, "-")
-                                        .toLowerCase() + "/" + item?.url}
+                                    <Link href={('/' + item?.cat_slug
+                                        + "/" + item?.url).replace(/&/g, '').replace(/\s+/g, "-").toLowerCase()}
                                         key={item.id}>
                                         <p className="font-semibold  border-b-2  border-black hover:underline  line-clamp-2">
                                             {item.title}

@@ -19,7 +19,9 @@ const StartupInsightsSections = ({ data }: { data: ApiResponse }) => {
                                 <article key={i} className={cn('border-b-2 border-dotted border-black', i >= 4 && "max-md:hidden")}>
                                     <Link href={item?.cat_slug
                                         .replace(/\s+/g, "-")
-                                        .toLowerCase() + "/" + item?.url}>
+                                        .toLowerCase() + "/" + item?.url.replace(/&/g, '')
+                                            .replace(/\s+/g, "-")
+                                            .toLowerCase()}>
                                         <Image src={Endpoints.ImageUrl + item.images} alt={item.image_alt} width={300} height={200} className='h-[180px]' />
                                         <h2 className='line-clamp-2 font-semibold pt-2 hover:underline'>
                                             {item.title}

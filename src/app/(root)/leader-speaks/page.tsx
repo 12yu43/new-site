@@ -32,7 +32,7 @@ const LeaderSpeaksPage = async ({ searchParams }: { searchParams: SearchParams }
   return (
     <Suspense fallback={<Loading />}>
       <section className='container'>
-        <h1 className='text-3xl md:text-5xl text-center font-semibold mb-6 tracking-wider text-red-500'><span className='text-[#052C45]'>
+        <h1 className='text-3xl md:text-5xl text-center font-semibold mb-6 tracking-wider text-white/50'><span className='text-[#052C45]'>
           Leaders</span> Speak
         </h1>
         <div className=' grid gird-cols-1 md:grid-cols-3 pt-20 p-4 gap-6 gap-y-28  '>

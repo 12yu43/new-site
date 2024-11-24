@@ -8,6 +8,8 @@ import { SearchParams } from '@/types'
 import { redirect } from 'next/navigation'
 import React, { Suspense } from 'react'
 
+export const dynamic = "force-dynamic"
+
 const CxoPage = async ({ searchParams }: { searchParams: SearchParams }) => {
   let cxos = null
   let page = 1
@@ -34,7 +36,9 @@ const CxoPage = async ({ searchParams }: { searchParams: SearchParams }) => {
       <div className='container space-y-4'>
         {
           cxos.data.data?.map((item: any) => (
-            <NewsCard item={item} key={item.id} url={`/cxo/${item.url}`} />
+            <NewsCard item={item} key={item.id} url={`/cxo/${item.url.replace(/&/g, '')
+              .replace(/\s+/g, "-")
+              .toLowerCase()}`} />
           ))
         }
         <Pagination url={'/cxos/?'} link={cxos.data.links} />

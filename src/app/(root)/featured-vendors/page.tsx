@@ -38,7 +38,9 @@ const FeaturedVendorPage = async ({ searchParams }: { searchParams: SearchParams
           <BentoGrid className='grid md:auto-rows-[8rem]  grid-cols-1 md:grid-cols-4 justify-items-center'>
             {
               logos.data.data.map((item: any) => (
-                <Link key={item.id} className='shadow-xl p-6  self-center hover:scale-110 ease-in-out duration-200' href={'/feature/' + item.url}>
+                <Link key={item.id} className='shadow-xl p-6  self-center hover:scale-110 ease-in-out duration-200' href={'/feature/' + item.url.replace(/&/g, '')
+                  .replace(/\s+/g, "-")
+                  .toLowerCase()}>
                   <Image src={Endpoints.ImageUrl + item.featured_company_logo} alt={item.featured_company_logo} width={150} height={150} className='aspect-[20/8] ' />
                 </Link>
               ))

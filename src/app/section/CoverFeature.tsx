@@ -16,7 +16,9 @@ export function CoverFeature({ data }: { data: ApiResponse }) {
                             key={i}
                             title={item.title}
                             image_alt={item.image_alt}
-                            url={'/cover-story/' + item?.url}
+                            url={'/cover-story/' + item?.url.replace(/&/g, '')
+                                .replace(/\s+/g, "-")
+                                .toLowerCase()}
                             images={item.images}
 
                         // className={i === 3 || i === 6 ? "md:col-span-2" : ""}

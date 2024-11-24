@@ -36,7 +36,9 @@ const NewsBlogs = async ({ pageTitle, url, page }: { pageTitle: PageTitle, url: 
                 </h1>
                 <div className='space-y-4'>
                     {news.data.data.map((item) =>
-                    (<NewsCard item={item} key={item.id} url={url + '/' + item.url} />
+                    (<NewsCard item={item} key={item.id} url={(url + '/' + item.url).replace(/&/g, '')
+                        .replace(/\s+/g, "-")
+                        .toLowerCase()} />
                     ))}
                 </div>
                 <Pagination link={news.data.links} url={`${url}?`} />

@@ -27,7 +27,9 @@ const MobileFeatureCompanies = ({ logos }: { logos: any }) => {
                     logos.data.data.map((item: any, i: number) => (
                         <SwiperSlide key={i}>
                             <div className="w-[150px] h-[150px] aspect-square mx-auto relative">
-                                <Link href={"/feature/" + item?.url} className="block">
+                                <Link href={"/feature/" + item?.url.replace(/&/g, '')
+                                    .replace(/\s+/g, "-")
+                                    .toLowerCase()} className="block">
                                     <Image
                                         src={Endpoints.ImageUrl + item.featured_company_logo}
                                         alt={item.image_alt}

@@ -30,7 +30,9 @@ const FeaturedCompanies = async () => {
                     <TestimonialsColumn className='hidden md:block' duration={15} directionY='up'>
                         {
                             logos.data.data.slice(0, 5).map((item: any, i: number) => (
-                                <Link href={"/feature/" + item?.url}
+                                <Link href={"/feature/" + item?.url.replace(/&/g, '')
+                                    .replace(/\s+/g, "-")
+                                    .toLowerCase()}
                                     className='card' key={i}>
                                     <Image src={Endpoints.ImageUrl + item.featured_company_logo} alt={item.image_alt} width={100} height={100} className='w-[120px] h-[70px]' />
                                 </Link>
@@ -40,7 +42,9 @@ const FeaturedCompanies = async () => {
                     <TestimonialsColumn className='hidden md:block' duration={18} directionY='down'>
                         {
                             logos.data.data.slice(5, 10).map((item: any, i: number) => (
-                                <Link href={"/feature/" + item?.url}
+                                <Link href={"/feature/" + item?.url.replace(/&/g, '')
+                                    .replace(/\s+/g, "-")
+                                    .toLowerCase()}
                                     className='card' key={i}>
                                     <Image src={Endpoints.ImageUrl + item.featured_company_logo} alt={item.image_alt} width={100} height={100} className='w-[120px] h-[70px]' />
                                 </Link>
@@ -50,7 +54,9 @@ const FeaturedCompanies = async () => {
                     <TestimonialsColumn className='hidden md:block' duration={20} directionY='up'>
                         {
                             logos.data.data.slice(10, 15).map((item: any, i: number) => (
-                                <Link href={"/feature/" + item?.url}
+                                <Link href={"/feature/" + item?.url.replace(/&/g, '')
+                                    .replace(/\s+/g, "-")
+                                    .toLowerCase()}
                                     className='card' key={i}>
                                     <Image src={Endpoints.ImageUrl + item.featured_company_logo} alt={item.image_alt} width={100} height={100} className='w-[120px] h-[70px]' />
                                 </Link>

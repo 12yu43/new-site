@@ -48,7 +48,7 @@ const Technology = async ({ params, searchParams }: { params: { slug: string }, 
                 <div className='flex flex-col gap-4'>
                     {
                         data?.data.data.map((item) => (
-                            <NewsCard item={item} key={item.id} url={`/${item.cat_slug.replace(/\s+/g, "-").toLowerCase()}/${item?.url}`} />
+                            <NewsCard item={item} key={item.id} url={`/${item.cat_slug}/${item?.url}`.replace(/&/g, '').replace(/\s+/g, "-").toLowerCase()} />
                         ))
                     }
                 </div>

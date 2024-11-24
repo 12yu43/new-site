@@ -10,7 +10,9 @@ const NewsItems = ({ title, data, url }: { title: string, data: any, url: string
         <>
             {
                 data.slice(0, 4).map((news: News) => (
-                    <Link href={url + news.url} key={news.id}>
+                    <Link href={url + news.url.replace(/&/g, '')
+                        .replace(/\s+/g, "-")
+                        .toLowerCase()} key={news.id}>
                         <article className='grid grid-cols-3 place-items-cente gap-4 border-b-2 border-dotted py-2 border-black'>
                             <div className='overflow-hidden rounded-lg col-span-1'>
                                 <Image src={Endpoints.ImageUrl + news.images} alt={news.image_alt} width={250} height={250} className='image-effect object-fill' />

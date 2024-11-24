@@ -53,7 +53,9 @@ const Listing = async ({ params }: { params: { slug: string } }) => {
                                         <p>
                                             {item.featured_people_position}
                                         </p>
-                                        <Link className="text-blue-500 text-xs underline flex items-center" href={item.url ? `/feature/${item.url}` : "#"} >
+                                        <Link className="text-blue-500 text-xs underline flex items-center" href={item.url ? `/feature/${item.url.replace(/&/g, '')
+                                            .replace(/\s+/g, "-")
+                                            .toLowerCase() }` : "#"} >
                                             <span className='flex items-center gap-2 font-semibold'>
                                                 Know more <Link2Icon className='size-4' />
                                             </span>

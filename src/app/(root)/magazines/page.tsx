@@ -10,6 +10,8 @@ import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import React, { Suspense } from 'react'
 
+export const dynamic = "force-dynamic"
+
 const Magazines = async ({ searchParams }: { searchParams: SearchParams }) => {
   let magazines: {
     status: boolean
@@ -42,6 +44,7 @@ const Magazines = async ({ searchParams }: { searchParams: SearchParams }) => {
   try {
     const res = await fetch(getFullUrl(`${Endpoints.GetMagazine}?page=${page}`))
     magazines = await res.json()
+    // console.log(magazines.data)
   } catch (error) {
     console.log(error)
   }
@@ -58,7 +61,9 @@ const Magazines = async ({ searchParams }: { searchParams: SearchParams }) => {
         </h1>
         <BentoGrid className="md:auto-rows-[26rem] mt-10 gap-6">
           {magazines?.data.data.map((item, i) => (
-            <Link href={"/magazine/" + item?.url} key={i} className='row-span-1 group relative rounded-sm group/bento hover:shadow-xl transition duration-200  overflow-hidden bg-white  hover:scale-105 cursor-pointer border-4 border-red-500 '>
+            <Link href={"/magazine/" + item?.url.replace(/&/g, '')
+              .replace(/\s+/g, "-")
+              .toLowerCase()} key={i} className='row-span-1 group relative rounded-sm group/bento hover:shadow-xl transition duration-200  overflow-hidden bg-white  hover:scale-105 cursor-pointer border-4 border-red-500 '>
               <div className="group-hover:bg-black/70 w-full h-full absolute z-40 transition-all duration-300"></div>
               <Image src={Endpoints.ImageUrl + item.magazine_cover_image} alt={item.image_alt} width={600} height={600} className='object-cover  overflow-hidden h-full' />
               <div className="absolute -bottom-full left-4 group-hover:bottom-12 z-50 transition-all duration-700">

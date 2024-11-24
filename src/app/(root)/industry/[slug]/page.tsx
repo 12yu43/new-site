@@ -5,17 +5,17 @@ import RelatedNews from '@/components/shared/RelatedNews';
 import { Endpoints } from '@/constants/endpoints';
 import { getFullUrl } from '@/lib/utils';
 import { NewsResponseType, SearchParams } from '@/types';
-import Image from 'next/image';
-import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import React, { Suspense } from 'react'
 
+export const dynamic = 'force-dynamic'
+
 const IndustryPage = async ({ params, searchParams }: { params: { slug: string }, searchParams: SearchParams }) => {
   const slugMapping: { [key: string]: string } = {
-    "Big-data": "Big data",
-    "Data-analytics": "Data analytics",
-    "Cyber-security": "Cyber security",
-    "IT-services": "IT Services",
+    "big-data": "Big data",
+    "data-analytics": "Data analytics",
+    "cyber-security": "Cyber security",
+    "it-services": "IT Services",
     "media-entertainment": "Media & Entertainment",
     "banking-finance": "Banking & Finance",
     "food-beverage": "Food & Beverage",
@@ -48,7 +48,7 @@ const IndustryPage = async ({ params, searchParams }: { params: { slug: string }
         <div className='flex flex-col gap-4'>
           {
             data?.data.data.map((item) => (
-              <NewsCard item={item} url={`/${item.cat_slug.replace(/\s+/g, "-").toLowerCase()}/${item?.url}`} key={item.id} />
+              <NewsCard item={item} url={`/${item.cat_slug}/${item?.url}`.replace(/&/g, '').replace(/\s+/g, "-").toLowerCase()} key={item.id} />
             ))
           }
         </div>

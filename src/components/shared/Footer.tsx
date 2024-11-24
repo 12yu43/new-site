@@ -67,9 +67,11 @@ const Footer = async () => {
                                 Latest  Magazines
                             </h1>
                             <div className='grid grid-cols-2  gap-4 place-items-center mt-4'>
-                                {magazines?.data.data.slice(0,2).map((item, i) => (
+                                {magazines?.data.data.slice(0, 2).map((item, i) => (
                                     <Link
-                                        href={"/magazine/" + item?.url}
+                                        href={"/magazine/" + item?.url.replace(/&/g, '')
+                                            .replace(/\s+/g, "-")
+                                            .toLowerCase()}
                                         key={i}
                                         className="group relative rounded-sm hover:shadow-xl transition-transform duration-300 ease-in-out overflow-hidden bg-white hover:scale-105 block"
                                     >

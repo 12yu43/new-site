@@ -44,7 +44,11 @@ const AnimatedNewsColumn = (props: { duration?: number, data: News[], url?: stri
                 {[...new Array(2)].fill(0).map((_, idx) => (
                     <React.Fragment key={idx}>
                         {props.data?.slice(0, 8).map(({ images, image_alt, title, url, cat_slug }, i) => (
-                            <Link href={props.url + '/' + url || "#"} className='group' key={i}>
+                            <Link href={props.url?.replace(/&/g, '')
+                                .replace(/\s+/g, "-")
+                                .toLowerCase() + '/' + url.replace(/&/g, '')
+                                    .replace(/\s+/g, "-")
+                                    .toLowerCase() || "#"} className='group' key={i}>
                                 <Image src={Endpoints.ImageUrl + images} alt={image_alt} width={100} height={100} />
                                 <div className='flex items-center gap-2 mt-5'>
                                     <div className='flex flex-col'>

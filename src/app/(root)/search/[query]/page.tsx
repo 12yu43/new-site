@@ -44,7 +44,9 @@ const renderPosts = (data: any, category: string) => {
             <div className='space-y-4'>
                 {
                     data?.map((item: any, i: number) => (
-                        <NewsCard item={item} url={`/${category}/` + item.url} key={i} />
+                        <NewsCard item={item} url={`/${category}/` + item.url.replace(/&/g, '')
+                            .replace(/\s+/g, "-")
+                            .toLowerCase()} key={i} />
                     ))
                 }
             </div>

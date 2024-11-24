@@ -15,7 +15,9 @@ const HeroSection = async ({ data }: { data: ApiResponse }) => {
                         {data.data.technology?.slice(0, 1).map((item) => (
                             <Link href={'/' + item?.cat_slug
                                 .replace(/\s+/g, "-")
-                                .toLowerCase() + "/" + item?.url}
+                                .toLowerCase() + "/" + item?.url.replace(/&/g, '')
+                                    .replace(/\s+/g, "-")
+                                    .toLowerCase()}
                                 key={item.id}
                                 className='overflow-hidden group block relative rounded-lg cursor-pointer z-10'>
                                 <Image src={Endpoints.ImageUrl + item.images} alt={item.image_alt} width={800} height={600} className='z-10 group-hover:scale-110 duration-300 ease-in-out' />
@@ -37,7 +39,9 @@ const HeroSection = async ({ data }: { data: ApiResponse }) => {
                                         <Link href={
                                             item?.cat_slug.replace(/&/g, '')
                                                 .replace(/\s+/g, "-")
-                                                .toLowerCase() + "/" + item?.url
+                                                .toLowerCase() + "/" + item?.url.replace(/&/g, '')
+                                                    .replace(/\s+/g, "-")
+                                                    .toLowerCase()
                                         } key={item.id} className='hover:underline'>
                                             <article className='border-b flex items-center justify-between gap-2 h-20'>
                                                 <p className='text-xs line-clamp-3 hover:text-opacity-5'>
@@ -54,8 +58,12 @@ const HeroSection = async ({ data }: { data: ApiResponse }) => {
                                 <h1 className='sub-heading'>Industry News</h1>
                                 <div className='flex flex-col gap-2 mt-2 justify-between h-full'>
                                     {data.data.industry?.slice(0, 7).map((item) => (
-                                        <Link href={item?.cat_slug
-                                            + "/" + item?.url} key={item.id} className='hover:underline'>
+                                        <Link href={item?.cat_slug.replace(/&/g, '')
+                                            .replace(/\s+/g, "-")
+                                            .toLowerCase()
+                                            + "/" + item?.url.replace(/&/g, '')
+                                                .replace(/\s+/g, "-")
+                                                .toLowerCase()} key={item.id} className='hover:underline'>
                                             <article className='border-b flex items-center justify-between gap-4 h-20'>
                                                 <p className='text-xs line-clamp-3'>
                                                     {item.title}
@@ -75,7 +83,9 @@ const HeroSection = async ({ data }: { data: ApiResponse }) => {
                         <h1 className='sub-heading font-semibold md:hidden mb-2'>Business News</h1>
                         <div className='flex flex-row max-md:overflow-x-scroll items-center md:flex-col border-dashed gap-5 text-sm'>
                             {data.data.business?.slice(0, 6).map((item) => (
-                                <DisplayNewsCard key={item.id} href={"/cxo/" + item?.url} image_alt={item.image_alt} image_url={item.images} title={item.title} />
+                                <DisplayNewsCard key={item.id} href={"/cxo/" + item?.url.replace(/&/g, '')
+                                    .replace(/\s+/g, "-")
+                                    .toLowerCase()} image_alt={item.image_alt} image_url={item.images} title={item.title} />
                             ))}
                         </div>
                     </div>

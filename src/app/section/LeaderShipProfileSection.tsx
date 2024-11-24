@@ -15,7 +15,9 @@ const LeaderShipProfileSection = ({ data }: { data: ApiResponse }) => {
                             key={i}
                             title={item.title}
                             image_alt={item.image_alt}
-                            url={'/feature' + "/" + item?.url}
+                            url={'/feature' + "/" + item?.url.replace(/&/g, '')
+                                .replace(/\s+/g, "-")
+                                .toLowerCase()}
                             images={item.images}
                         />
                     ))}
