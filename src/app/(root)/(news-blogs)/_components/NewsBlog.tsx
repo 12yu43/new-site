@@ -7,8 +7,9 @@ import { NewsResponseType } from '@/types';
 import { redirect } from 'next/navigation';
 import React, { Suspense } from 'react'
 
-type PageTitle = "Sports" | "Lifestyle" | "Entrepreneurs" | "Entertainment & Media" | "Awards & Events"
+export const dynamic = 'force-dynamic'
 
+type PageTitle = "Sports" | "Lifestyle" | "Entrepreneurs" | "Entertainment & Media" | "Awards & Events"
 const NewsBlogs = async ({ pageTitle, url, page }: { pageTitle: PageTitle, url: string, page: number }) => {
 
     let news: NewsResponseType | null = null
