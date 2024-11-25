@@ -34,7 +34,9 @@ const IndustryPage = async ({ params, searchParams }: { params: { slug: string }
     }
   }
   try {
-    const res = await fetch(getFullUrl(`${Endpoints.GetNews}/${"industry"}/${slug}?page=${page}`))
+    const res = await fetch(getFullUrl(`${Endpoints.GetNews}/${"industry"}/${slug}?page=${page}`), {
+      cache: "no-store"
+    })
     data = await res.json()
   } catch (error) {
     console.log(error)

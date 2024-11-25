@@ -17,7 +17,9 @@ const NewsBlogs = async ({ pageTitle, url, page }: { pageTitle: PageTitle, url: 
         redirect('/')
     }
     try {
-        const res = await fetch(getFullUrl(Endpoints.GetNewNews + '/' + pageTitle + `?page=${page}`))
+        const res = await fetch(getFullUrl(Endpoints.GetNewNews + '/' + pageTitle + `?page=${page}`), {
+            cache: "no-store"
+        })
         news = await res.json()
     } catch (error) {
         console.log(error)

@@ -30,7 +30,9 @@ const Footer = async () => {
 
     } | null = null
     try {
-        const res = await fetch(getFullUrl(`${Endpoints.GetMagazine}`))
+        const res = await fetch(getFullUrl(`${Endpoints.GetMagazine}`), {
+            cache: "no-store"
+        })
         magazines = await res.json()
     } catch (error) {
         console.log(error)

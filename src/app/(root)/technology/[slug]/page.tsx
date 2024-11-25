@@ -34,7 +34,9 @@ const Technology = async ({ params, searchParams }: { params: { slug: string }, 
     }
 
     try {
-        const res = await fetch(getFullUrl(`${Endpoints.GetNews}/${"technology"}/${slug}?page=${page}`))
+        const res = await fetch(getFullUrl(`${Endpoints.GetNews}/${"technology"}/${slug}?page=${page}`), {
+            cache: "no-store"
+        })
         data = await res.json()
         if (!data || !data.data) {
             redirect('/')

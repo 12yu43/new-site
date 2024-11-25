@@ -10,7 +10,9 @@ import ContactUsForm from './contactus-form';
 const RelatedNews = async () => {
     let logos: any | null = null
     try {
-        const res = await fetch(getFullUrl(`${Endpoints.GetCompanyLogo}`))
+        const res = await fetch(getFullUrl(`${Endpoints.GetCompanyLogo}`), {
+            cache: "no-store"
+        })
         logos = await res.json()
     } catch (error) {
         console.log(error)

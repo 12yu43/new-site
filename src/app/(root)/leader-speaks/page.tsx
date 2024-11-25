@@ -21,7 +21,9 @@ const LeaderSpeaksPage = async ({ searchParams }: { searchParams: SearchParams }
     }
   }
   try {
-    const res = await fetch(getFullUrl(`${Endpoints.GetClientspeak}?page=${page}`))
+    const res = await fetch(getFullUrl(`${Endpoints.GetClientspeak}?page=${page}`), {
+      cache: "no-store"
+    })
     leaderSpeaks = await res.json()
   } catch (error) {
     console.log(error)

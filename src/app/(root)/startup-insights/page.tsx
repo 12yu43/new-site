@@ -21,7 +21,9 @@ const StartupInsightsPage = async ({ searchParams }: { searchParams: SearchParam
     }
   }
   try {
-    const res = await fetch(getFullUrl(`${Endpoints.GetStartupInsight}?page=${page}`))
+    const res = await fetch(getFullUrl(`${Endpoints.GetStartupInsight}?page=${page}`), {
+      cache: "no-store"
+    })
     startupInsights = await res.json()
   } catch (error) {
     console.log(error)

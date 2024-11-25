@@ -23,7 +23,9 @@ const FeaturedVendorPage = async ({ searchParams }: { searchParams: SearchParams
     }
   }
   try {
-    const res = await fetch(getFullUrl(`${Endpoints.GetCompanyLogo}?page=${page || 1}`))
+    const res = await fetch(getFullUrl(`${Endpoints.GetCompanyLogo}?page=${page || 1}`), {
+      cache: "no-store"
+    })
     logos = await res.json()
   } catch (error) {
     console.log(error)

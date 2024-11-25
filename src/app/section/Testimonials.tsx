@@ -29,7 +29,9 @@ export async function Testimonials({ data }: { data: ApiResponse }) {
 
     let totalClients: any[] = []
     try {
-        const res = await fetch(`${process.env.BASE_URL}/home?page=2`)
+        const res = await fetch(`${process.env.BASE_URL}/home?page=2`, {
+            cache: "no-store"
+        })
         const clients = await res.json()
         totalClients = [...data.data.client_speak?.data as [], ...clients.data.client_speak.data]
     } catch (error) {

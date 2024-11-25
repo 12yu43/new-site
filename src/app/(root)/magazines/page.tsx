@@ -1,7 +1,7 @@
 import Loading from '@/app/loading';
 import Pagination from '@/components/shared/Pagination';
 import RelatedNews from '@/components/shared/RelatedNews';
-import { BentoGrid, BentoGridItem } from '@/components/ui/bento-grid';
+import { BentoGrid } from '@/components/ui/bento-grid';
 import { Endpoints } from '@/constants/endpoints';
 import { getFullUrl } from '@/lib/utils';
 import { MagazineType, SearchParams } from '@/types'
@@ -10,7 +10,7 @@ import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import React, { Suspense } from 'react'
 
-export const dynamic = "force-dynamic"
+export const dynamic = "force-dynamic";
 
 const Magazines = async ({ searchParams }: { searchParams: SearchParams }) => {
   let magazines: {
@@ -42,9 +42,10 @@ const Magazines = async ({ searchParams }: { searchParams: SearchParams }) => {
     }
   }
   try {
-    const res = await fetch(getFullUrl(`${Endpoints.GetMagazine}?page=${page}`))
+    const res = await fetch(getFullUrl(`${Endpoints.GetMagazine}?page=${page}`), {
+      cache: "no-store",
+    })
     magazines = await res.json()
-    // console.log(magazines.data)
   } catch (error) {
     console.log(error)
   }
@@ -65,7 +66,7 @@ const Magazines = async ({ searchParams }: { searchParams: SearchParams }) => {
               .replace(/\s+/g, "-")
               .toLowerCase()} key={i} className='row-span-1 group relative rounded-sm group/bento hover:shadow-xl transition duration-200  overflow-hidden bg-white  hover:scale-105 cursor-pointer border-4 border-red-500 '>
               <div className="group-hover:bg-black/70 w-full h-full absolute z-40 transition-all duration-300"></div>
-              <Image src={Endpoints.ImageUrl + item.magazine_cover_image} alt={item.image_alt} width={600} height={600} className='object-cover  overflow-hidden h-full' />
+              <Image src={Endpoints.ImageUrl + item.magazine_cover_image} alt={item.image_alt || "Magazine"} width={600} height={600} className='object-cover  overflow-hidden h-full' />
               <div className="absolute -bottom-full left-4 group-hover:bottom-12 z-50 transition-all duration-700">
                 <span className="text-white text-xl">{item.meta_title}</span>
               </div>

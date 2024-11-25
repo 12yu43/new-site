@@ -8,7 +8,7 @@ import { SearchParams } from '@/types'
 import { redirect } from 'next/navigation'
 import React, { Suspense } from 'react'
 
-export const dynamic = "force-dynamic"
+export const dynamic = "force-dynamic";
 
 const CxoPage = async ({ searchParams }: { searchParams: SearchParams }) => {
   let cxos = null
@@ -23,7 +23,9 @@ const CxoPage = async ({ searchParams }: { searchParams: SearchParams }) => {
     }
   }
   try {
-    const res = await fetch(getFullUrl(`${Endpoints.GetCxo}?page=${page}`))
+    const res = await fetch(getFullUrl(`${Endpoints.GetCxo}?page=${page}`), {
+      cache: "no-store"
+    })
     cxos = await res.json()
     if (!cxos || !cxos.data) {
       redirect('/')

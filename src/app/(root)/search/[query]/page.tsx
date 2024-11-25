@@ -13,7 +13,9 @@ const Search = async ({ params }: { params: { query: string } }) => {
     let startupData;
 
     try {
-        const res = await fetch(getFullUrl(`${Endpoints.GetSearch}/${params.query}`))
+        const res = await fetch(getFullUrl(`${Endpoints.GetSearch}/${params.query}`), {
+            cache: "no-store"
+        })
         const data = await res.json();
         technologyData = data.data?.technology || []
         industryData = data.data?.industry || []

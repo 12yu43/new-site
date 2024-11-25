@@ -28,7 +28,9 @@ const DisplayInfo = async ({ pageTitle }: { pageTitle: PageTitle }) => {
     }
     let data = null
     try {
-        const res = await fetch(getFullUrl(Endpoints.GetAbout + '/' + type))
+        const res = await fetch(getFullUrl(Endpoints.GetAbout + '/' + type), {
+            cache: "no-store"
+        })
         data = await res.json();
     } catch (error) {
         console.log(error);
