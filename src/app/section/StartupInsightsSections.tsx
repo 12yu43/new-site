@@ -22,7 +22,7 @@ const StartupInsightsSections = ({ data }: { data: ApiResponse }) => {
                                         .toLowerCase() + "/" + item?.url.replace(/&/g, '')
                                             .replace(/\s+/g, "-")
                                             .toLowerCase()}>
-                                        <Image src={Endpoints.ImageUrl + item.images} alt={item.image_alt} width={300} height={200} className='h-[180px] mx-auto' />
+                                        <Image src={Endpoints.ImageUrl + item.images} alt={item.image_alt} width={300} height={200} className='h-[180px] mx-auto image-effect' />
                                         <h2 className='line-clamp-2 font-semibold pt-2 hover:underline text-center sm:text-left'>
                                             {item.title}
                                         </h2>

@@ -22,7 +22,8 @@ const HeroSection = async ({ data }: { data: ApiResponse }) => {
                                 className='overflow-hidden group block relative rounded-lg cursor-pointer z-10'>
                                 <Image src={Endpoints.ImageUrl + item.images} alt={item.image_alt} width={800} height={600} className='z-10 group-hover:scale-110 duration-300 ease-in-out' />
                                 <p className='text-2xl text-white line-clamp-3 font-bold absolute z-30 bottom-6 left-4 '>
-                                    {item.title.substring(0, 100) + "" + (item.title.length > 100 && "...")}
+                                {item.title.length > 100 ? item.title.substring(0, 100) + "..." : item.title}
+                                    {/* {item.title.substring(0, 100) + "" + (item.title.length > 100 && "...")} */}
                                 </p>
 
                                 <div className='absolute bg-black/20 w-full h-full z-20 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'></div>
