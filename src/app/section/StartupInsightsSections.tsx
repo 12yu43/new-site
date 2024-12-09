@@ -14,7 +14,7 @@ const StartupInsightsSections = ({ data }: { data: ApiResponse }) => {
                 <HeadingTitle>Startup Insights</HeadingTitle>
                 <main className='flex flex-col md:flex-row gap-4 pt-8 items-start'>
                     <div>
-                        <BentoGrid className=" md:auto-rows-[16rem] md:grid-cols-4 flex-1 space-y-2  overflow-hidden">
+                        <BentoGrid className=" md:auto-rows-[16rem] md:grid-cols-4 flex-1 space-y-0  overflow-hidden">
                             {data.data.startup_insight?.slice(0, 12).map((item, i) => (
                                 <article key={i} className={cn('border-b-2 border-dotted border-black pb-2', i >= 4 && "max-md:hidden")}>
                                     <Link href={item?.cat_slug
